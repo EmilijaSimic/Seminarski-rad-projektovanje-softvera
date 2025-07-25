@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zajednicki.Domen
 {
-    internal class Potvrda
+    public class Potvrda
     {
         public int Id { get; set; }
         public DateTime Datum { get; set; }

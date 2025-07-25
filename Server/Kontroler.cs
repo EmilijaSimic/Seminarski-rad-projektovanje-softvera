@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Zajednicki.Domen
+namespace Server
 {
-    public class Pozicija
+    internal class Kontroler
     {
-        public int Id { get; set; }
-        public string Naziv { get; set; }
     }
 }
