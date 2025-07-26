@@ -9,6 +9,6 @@ namespace Zajednicki.Domen
 {
     public interface OpstiDomenskiObjekat
     {
-        string VratiNazivTabele();
+        //string VratiNazivTabele();
     }
 }

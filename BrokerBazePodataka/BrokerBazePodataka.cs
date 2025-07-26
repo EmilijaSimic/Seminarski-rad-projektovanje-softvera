@@ -1,12 +1,14 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Diagnostics;
+using System.Transactions;
 
-namespace BrokerBazePodataka
+namespace BazaPodataka
 {
     public class BrokerBazePodataka
     {
         private SqlConnection connection;
+        private SqlTransaction transaction;
 
         public void OtvoriKonekciju()
         {
@@ -24,6 +26,36 @@ namespace BrokerBazePodataka
         public void ZatvoriKonekciju()
         {
             connection?.Close();
+        }
+
+        public void PokreniTransakciju()
+        {
+            transaction = connection.BeginTransaction();
+        }
+
+        public bool PotvrdiTransakciju()
+        {
+            try
+            {
+                transaction.Commit();
+            }
+            catch (SqlException ex) {
+                return false;
+            }
+            return true;
+        }
+
+        public bool OdbaciTransakciju()
+        {
+            try
+            {
+                transaction.Rollback();
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+            return true;
         }
 
     }

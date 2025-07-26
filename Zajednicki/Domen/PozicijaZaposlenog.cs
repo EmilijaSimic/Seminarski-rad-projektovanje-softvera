@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zajednicki.Domen
 {
-    public class PozicijaZaposlenog
+    public class PozicijaZaposlenog : OpstiDomenskiObjekat
     {
         public Zaposleni Zaposleni { get; set; }
         public Pozicija Pozicija { get; set; }

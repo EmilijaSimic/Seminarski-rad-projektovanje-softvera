@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zajednicki.Komunikacija;
 
 namespace Zajednicki.Domen
 {
-    public class Potvrda
+    public class Potvrda : OpstiDomenskiObjekat
     {
         public int Id { get; set; }
         public DateTime Datum { get; set; }

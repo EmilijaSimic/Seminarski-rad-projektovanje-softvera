@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zajednicki.Domen
 {
-    internal class TipKupca
+    public class TipKupca : OpstiDomenskiObjekat
     {
         public int Id {  get; set; }
         public string Naziv { get; set; }

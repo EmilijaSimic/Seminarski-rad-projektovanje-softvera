@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klijent", "Klijent\Klijent.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zajednicki", "Zajednicki\Zajednicki.csproj", "{51B99F96-FC14-4CDE-A19B-B9FA5D3CDABB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokerBazePodataka", "BrokerBazePodataka\BrokerBazePodataka.csproj", "{F3D3CF99-56A5-4BB4-A5FE-182C2B03061E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazaPodataka", "BrokerBazePodataka\BazaPodataka.csproj", "{F3D3CF99-56A5-4BB4-A5FE-182C2B03061E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
