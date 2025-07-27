@@ -14,5 +14,25 @@ namespace Zajednicki.Domen
         public double Cena { get; set; }
         public double Iznos {  get; set; }
         public Dogadjaj Dogadjaj { get; set; }
+
+        public string VratiNaziveKolona()
+        {
+            return "idPotvrda, kolicina, cena, iznos, idDogadjaj";
+        }
+
+        public string VratiNazivTabele()
+        {
+            return "StavkaPotvrde";
+        }
+
+        public string VratiVrednostiKolona()
+        {
+            return $"{Potvrda.Id}, {Kolicina}, {Cena.ToString(System.Globalization.CultureInfo.InvariantCulture)}, {Iznos.ToString(System.Globalization.CultureInfo.InvariantCulture)}, {Dogadjaj.Id}";
+        }
+
+        public string VratiVrednostiZaPromenu()
+        {
+            return $"idPotvrda = {Potvrda.Id}, kolicina = {Kolicina}, cena = {Cena.ToString(System.Globalization.CultureInfo.InvariantCulture)}, iznos = {Iznos.ToString(System.Globalization.CultureInfo.InvariantCulture)}, idDogadjaj = {Dogadjaj.Id}";
+        }
     }
 }

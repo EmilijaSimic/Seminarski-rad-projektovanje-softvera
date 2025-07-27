@@ -2,6 +2,7 @@
 using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Transactions;
+using Zajednicki.Domen;
 
 namespace BazaPodataka
 {
@@ -56,6 +57,19 @@ namespace BazaPodataka
                 return false;
             }
             return true;
+        }
+
+        public List<OpstiDomenskiObjekat> VratiListuSvih(OpstiDomenskiObjekat odo)
+        {
+            string upit = "SELECT * FROM " + odo.VratiNazivTabele();
+            SqlCommand cmd = new SqlCommand(upit, connection);
+            SqlDataReader ulaz = cmd.ExecuteReader();
+            List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
+
+            while (ulaz.Read()) { 
+                
+            }
+            return objekti;
         }
 
     }

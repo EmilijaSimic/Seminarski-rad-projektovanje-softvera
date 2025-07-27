@@ -10,9 +10,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Server.SistemskeOperacije
 {
-    internal abstract class OpsteIzvrsenjeSO
+    public abstract class OpsteIzvrsenjeSO
     {
-        BrokerBazePodataka bbp = new BrokerBazePodataka();
+        internal BrokerBazePodataka bbp = new BrokerBazePodataka();
 
         public bool OpsteIzvrsiSO(OpstiDomenskiObjekat odo)
         {

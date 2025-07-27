@@ -9,6 +9,19 @@ namespace Zajednicki.Domen
 {
     public interface OpstiDomenskiObjekat
     {
-        //string VratiNazivTabele();
+        string VratiNazivTabele();
+
+        string VratiNaziveKolona();
+
+        string VratiVrednostiKolona();
+
+        string VratiVrednostiZaPromenu();
+
+        //string VratiNazivPrimarnogKljuca();
+
+        //string Uslov();
+
+        //string UslovZaPretragu();
+
     }
 }

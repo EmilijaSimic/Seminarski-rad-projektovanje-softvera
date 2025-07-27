@@ -14,5 +14,25 @@ namespace Zajednicki.Domen
         public string Prezime {  get; set; }
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
+
+        public string VratiNaziveKolona()
+        {
+            return "jmbg, ime, prezime, korisnickoIme, lozinka";
+        }
+
+        public string VratiNazivTabele()
+        {
+            return "Zaposleni";
+        }
+
+        public string VratiVrednostiKolona()
+        {
+            return $"'{Jmbg}', '{Ime}', '{Prezime}', '{KorisnickoIme}', '{Lozinka}'";
+        }
+
+        public string VratiVrednostiZaPromenu()
+        {
+             return $"jmbg = '{Jmbg}', ime = '{Ime}', prezime = '{Prezime}', korisnickoIme = '{KorisnickoIme}', lozinka = '{Lozinka}'";
+        }
     }
 }

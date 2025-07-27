@@ -10,5 +10,25 @@ namespace Zajednicki.Domen
     {
         public int Id { get; set; }
         public string Naziv { get; set; }
+
+        public string VratiNaziveKolona()
+        {
+            return "naziv";
+        }
+
+        public string VratiNazivTabele()
+        {
+            return "Pozicija";
+        }
+
+        public string VratiVrednostiKolona()
+        {
+            return $"'{Naziv}'";
+        }
+
+        public string VratiVrednostiZaPromenu()
+        {
+            return $"naziv = '{Naziv}'";
+        }
     }
 }

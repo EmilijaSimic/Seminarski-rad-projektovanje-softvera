@@ -19,5 +19,25 @@ namespace Zajednicki.Domen
         public TipKupca TipKupca { get; set; }
         public string KorisnickoIme {  get; set; }
         public string Lozinka {  get; set; }
+
+        public string VratiNaziveKolona()
+        {
+            return "ime, prezime, telefon, brojPlatneKartice, aktivan, tipKupcaId, korisnickoIme, lozinka";
+        }
+
+        public string VratiNazivTabele()
+        {
+            return "Kupac";
+        }
+
+        public string VratiVrednostiKolona()
+        {
+            return $"'{Ime}', '{Prezime}', '{Telefon}', '{BrojPlatneKartice}', {(Aktivan ? 1 : 0)}, {TipKupca.Id}, '{KorisnickoIme}', '{Lozinka}'";
+        }
+
+        public string VratiVrednostiZaPromenu()
+        {
+            return $"ime = '{Ime}', prezime = '{Prezime}', telefon = '{Telefon}', brojPlatneKartice = '{BrojPlatneKartice}', aktivan = {(Aktivan ? 1 : 0)}, tipKupcaId = {TipKupca.Id}, korisnickoIme = '{KorisnickoIme}', lozinka = '{Lozinka}'";
+        }
     }
 }
