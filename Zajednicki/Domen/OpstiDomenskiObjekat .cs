@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -16,6 +17,8 @@ namespace Zajednicki.Domen
         string VratiVrednostiKolona();
 
         string VratiVrednostiZaPromenu();
+
+        OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz);
 
         //string VratiNazivPrimarnogKljuca();
 

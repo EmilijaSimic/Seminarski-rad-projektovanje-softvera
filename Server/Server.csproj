@@ -9,13 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="SistemskeOperacije\SODogadjaj\" />
-    <Folder Include="SistemskeOperacije\SOKupac\" />
-    <Folder Include="SistemskeOperacije\SOZaposleni\" />
-    <Folder Include="SistemskeOperacije\SOPotvrda\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BrokerBazePodataka\BazaPodataka.csproj" />
     <ProjectReference Include="..\Zajednicki\Zajednicki.csproj" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,11 @@ namespace Zajednicki.Domen
         public double IznosUkupno { get; set; }
         public Zaposleni Zaposleni { get; set; }
         public Kupac Kupac { get; set; }
+
+        public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
+        {
+            throw new NotImplementedException();
+        }
 
         public string VratiNaziveKolona()
         {

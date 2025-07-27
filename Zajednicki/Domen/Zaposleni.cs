@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,19 @@ namespace Zajednicki.Domen
         public string Prezime {  get; set; }
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
+
+        public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
+        {
+            Zaposleni z = new Zaposleni();
+            z.Id = (int)ulaz["id"];
+            z.Jmbg = ulaz["jmbg"].ToString();
+            z.Ime = ulaz["ime"].ToString();
+            z.Prezime = ulaz["prezime"].ToString();
+            z.KorisnickoIme = ulaz["korisnickoIme"].ToString();
+            z.Lozinka = ulaz["lozinka"].ToString();
+
+            return z;
+        }
 
         public string VratiNaziveKolona()
         {

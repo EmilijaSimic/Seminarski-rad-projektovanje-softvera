@@ -66,9 +66,12 @@ namespace BazaPodataka
             SqlDataReader ulaz = cmd.ExecuteReader();
             List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
 
-            while (ulaz.Read()) { 
-                
+            while (ulaz.Read()) {
+                OpstiDomenskiObjekat objekat = odo.ProcitajRed(ulaz);
+                objekti.Add(objekat);
             }
+
+            ulaz.Close();
             return objekti;
         }
 

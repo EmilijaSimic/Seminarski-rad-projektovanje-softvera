@@ -11,7 +11,17 @@ namespace Server.SistemskeOperacije
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            List<OpstiDomenskiObjekat> zaposleni = bbp.VratiListuSvih(odo);
+            Zaposleni login = (Zaposleni)odo;
+            foreach(OpstiDomenskiObjekat objekat in zaposleni)
+            {
+                Zaposleni z = (Zaposleni)objekat;
+                if(login.KorisnickoIme.Equals(z?.KorisnickoIme) && login.Lozinka.Equals(z?.Lozinka))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)

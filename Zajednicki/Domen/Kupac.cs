@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -19,6 +20,11 @@ namespace Zajednicki.Domen
         public TipKupca TipKupca { get; set; }
         public string KorisnickoIme {  get; set; }
         public string Lozinka {  get; set; }
+
+        public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
+        {
+            throw new NotImplementedException();
+        }
 
         public string VratiNaziveKolona()
         {
