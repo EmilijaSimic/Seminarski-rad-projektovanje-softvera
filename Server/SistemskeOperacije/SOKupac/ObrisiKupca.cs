@@ -11,12 +11,17 @@ namespace Server.SistemskeOperacije.SOKupac
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            Kupac kupac = new Kupac();
+            return bbp.Obrisi(kupac);
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            if (odo is Kupac kupac)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

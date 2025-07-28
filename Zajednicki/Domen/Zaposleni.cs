@@ -48,5 +48,20 @@ namespace Zajednicki.Domen
         {
              return $"jmbg = '{Jmbg}', ime = '{Ime}', prezime = '{Prezime}', korisnickoIme = '{KorisnickoIme}', lozinka = '{Lozinka}'";
         }
+
+        public string Uslov()
+        {
+            return $"id = {Id}";
+        }
+
+        public string UslovZaPretragu(string filter)
+        {
+            return $"LOWER(ime) LIKE CONCAT('%',LOWER('{filter}'),'%')";
+        }
+
+        public string Join()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -9,14 +9,16 @@ namespace Server.SistemskeOperacije.SOPozicija
 {
     internal class VratiListuPozicija : OpsteIzvrsenjeSO
     {
+        List<OpstiDomenskiObjekat> Rezultat { get; set; }
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            Rezultat = bbp.VratiListuSvih(new Pozicija());
+            return true;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

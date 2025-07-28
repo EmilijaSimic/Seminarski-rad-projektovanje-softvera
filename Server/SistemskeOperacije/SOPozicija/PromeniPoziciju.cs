@@ -11,12 +11,19 @@ namespace Server.SistemskeOperacije.SOPozicija
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            Pozicija p = (Pozicija)odo;
+            return bbp.Promeni(p);
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            if (odo is Pozicija pozicija) { 
+                if(pozicija.Naziv !=null && pozicija.Naziv != "")
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -9,14 +9,17 @@ namespace Server.SistemskeOperacije.SOKupac
 {
     internal class PretraziKupca : OpsteIzvrsenjeSO
     {
+        public string Filter { get; set; }
+        List<OpstiDomenskiObjekat> Rezultat;
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            Rezultat = bbp.PretraziSaJoin(new Kupac(), Filter);
+            return true;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

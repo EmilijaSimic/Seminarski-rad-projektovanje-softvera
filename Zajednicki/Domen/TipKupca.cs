@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,31 @@ namespace Zajednicki.Domen
         public int Id {  get; set; }
         public string Naziv { get; set; }
         public double Popust { get; set; }
+
+        public string Join()
+        {
+            throw new NotImplementedException();
+        }
+
+        public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
+        {
+            TipKupca t = new TipKupca();
+            t.Id = (int)ulaz["id"];
+            t.Naziv = ulaz["naziv"].ToString();
+            t.Popust = (double)ulaz["popust"];
+
+            return t;
+        }
+
+        public string Uslov()
+        {
+            return $"id = {Id}";
+        }
+
+        public string UslovZaPretragu(string filter)
+        {
+            throw new NotImplementedException();
+        }
 
         public string VratiNaziveKolona()
         {
@@ -31,5 +57,6 @@ namespace Zajednicki.Domen
         {
             return $"naziv = '{Naziv}', popust = {Popust.ToString(System.Globalization.CultureInfo.InvariantCulture)}";
         }
+
     }
 }

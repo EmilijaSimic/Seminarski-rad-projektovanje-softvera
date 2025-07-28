@@ -11,12 +11,20 @@ namespace Server.SistemskeOperacije.SOTipKupca
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            TipKupca tip = (TipKupca) odo;
+            return bbp.Promeni(tip);
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            if (odo is TipKupca tip)
+            {
+                if (tip.Naziv != null && tip.Naziv != "")
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

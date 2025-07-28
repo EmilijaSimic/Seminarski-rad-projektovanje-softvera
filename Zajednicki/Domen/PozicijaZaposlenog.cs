@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,26 @@ namespace Zajednicki.Domen
         public Pozicija Pozicija { get; set; }
         public DateTime DatumPocetka { get; set; }
         public DateTime DatumZavrsetka { get; set; }
+
+        public string Join()
+        {
+            throw new NotImplementedException();
+        }
+
+        public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Uslov()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UslovZaPretragu(string filter)
+        {
+            throw new NotImplementedException();
+        }
 
         public string VratiNaziveKolona()
         {
@@ -32,5 +53,6 @@ namespace Zajednicki.Domen
         {
             return $"idZaposleni = {Zaposleni.Id}, idPozicija = {Pozicija.Id}, datumPocetka = '{DatumPocetka:yyyy-MM-dd HH:mm:ss}', datumZavrsetka = '{DatumZavrsetka:yyyy-MM-dd HH:mm:ss}'";
         }
+
     }
 }

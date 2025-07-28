@@ -11,12 +11,20 @@ namespace Server.SistemskeOperacije.SODogadjaj
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            Dogadjaj d = (Dogadjaj)odo;
+            return bbp.Promeni(d);
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            if (odo is Dogadjaj dogadjaj)
+            {
+                if (dogadjaj.Izvodjac != null && dogadjaj.Datum != null && dogadjaj.Cena > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

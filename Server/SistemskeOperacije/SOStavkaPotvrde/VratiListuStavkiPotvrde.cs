@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Zajednicki.Domen;
 
-namespace Server.SistemskeOperacije.SOPotvrda
+namespace Server.SistemskeOperacije.SOStavkaPotvrde
 {
-    internal class PretraziPotvrdu : OpsteIzvrsenjeSO
+    internal class VratiListuStavkiPotvrde : OpsteIzvrsenjeSO
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
@@ -16,7 +16,7 @@ namespace Server.SistemskeOperacije.SOPotvrda
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

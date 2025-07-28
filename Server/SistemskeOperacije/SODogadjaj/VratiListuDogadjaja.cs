@@ -9,14 +9,16 @@ namespace Server.SistemskeOperacije.SODogadjaj
 {
     internal class VratiListuDogadjaja : OpsteIzvrsenjeSO
     {
+        List<OpstiDomenskiObjekat> Rezultat { get; set; };
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            //dopuni
+            return true;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

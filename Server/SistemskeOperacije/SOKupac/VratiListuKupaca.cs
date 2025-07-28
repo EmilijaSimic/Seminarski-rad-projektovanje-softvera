@@ -9,14 +9,16 @@ namespace Server.SistemskeOperacije.SOKupac
 {
     internal class VratiListuKupaca : OpsteIzvrsenjeSO
     {
+        List<OpstiDomenskiObjekat> Rezultat {  get; set; }
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            //dopuni
+            return false;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

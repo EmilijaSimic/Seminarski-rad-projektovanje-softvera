@@ -18,7 +18,15 @@ namespace Zajednicki.Domen
 
         public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
         {
-            throw new NotImplementedException();
+            Dogadjaj d = new Dogadjaj();
+            d.Id = (int)ulaz["id"];
+            d.Izvodjac = ulaz["izvodjac"].ToString();
+            d.Hala = ulaz["hala"].ToString();
+            d.Mesto = ulaz["mesto"].ToString();
+            d.Datum = (DateTime)ulaz["datum"];
+            d.Cena = (double)ulaz["korisnickoIme"];
+
+            return d;
         }
 
         public string VratiNaziveKolona()
@@ -40,6 +48,21 @@ namespace Zajednicki.Domen
         {
             return $"izvodjac = '{Izvodjac}', hala = '{Hala}', mesto = '{Mesto}', datum = '{Datum:yyyy-MM-dd HH:mm:ss}', cena = {Cena.ToString(System.Globalization.CultureInfo.InvariantCulture)}";
 
+        }
+
+        public string Uslov()
+        {
+            return $"id = {Id}";
+        }
+
+        public string UslovZaPretragu(string filter)
+        {
+            return $"LOWER(ime) LIKE CONCAT('%',LOWER('{filter}'),'%')";
+        }
+
+        public string Join()
+        {
+            throw new NotImplementedException();
         }
     }
 }

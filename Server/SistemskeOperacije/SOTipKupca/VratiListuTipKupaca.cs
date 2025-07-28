@@ -9,14 +9,16 @@ namespace Server.SistemskeOperacije.SOTipKupca
 {
     internal class VratiListuTipKupaca : OpsteIzvrsenjeSO
     {
+        List<OpstiDomenskiObjekat> Rezultat {  get; set; }
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            Rezultat = bbp.VratiListuSvih(new TipKupca());
+            return true;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

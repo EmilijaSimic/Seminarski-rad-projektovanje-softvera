@@ -22,9 +22,11 @@ namespace Zajednicki.Domen
 
         //string VratiNazivPrimarnogKljuca();
 
-        //string Uslov();
+        string Uslov();
 
-        //string UslovZaPretragu();
+        string UslovZaPretragu(string filter);
+
+        string Join();
 
     }
 }

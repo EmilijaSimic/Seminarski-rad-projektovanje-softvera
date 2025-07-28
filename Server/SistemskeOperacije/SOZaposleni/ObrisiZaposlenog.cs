@@ -11,12 +11,17 @@ namespace Server.SistemskeOperacije.SOZaposleni
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            Zaposleni zaposleni = (Zaposleni)odo;
+            return bbp.Obrisi(odo);
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            if (odo is Zaposleni zaposleni)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

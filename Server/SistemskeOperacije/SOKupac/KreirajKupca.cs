@@ -11,12 +11,21 @@ namespace Server.SistemskeOperacije.SOKupac
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            Kupac k = (Kupac)odo;
+            return bbp.Kreiraj(k);
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            if (odo is Kupac kupac)
+            {
+                if (kupac.Ime != null && kupac.Prezime != null && kupac.Ime != "" && kupac.Prezime != null && kupac.TipKupca != null &&
+                    kupac.Ime[0] == kupac.Ime.ToUpper()[0] && kupac.Prezime[0] == kupac.Prezime.ToUpper()[0])
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

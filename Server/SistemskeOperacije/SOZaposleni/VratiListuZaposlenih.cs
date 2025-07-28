@@ -9,14 +9,22 @@ namespace Server.SistemskeOperacije.SOZaposleni
 {
     internal class VratiListuZaposlenih : OpsteIzvrsenjeSO
     {
+        public string Filter { get; set; }
+        public List<OpstiDomenskiObjekat> Rezultat { get; set; }
+
+        public VratiListuZaposlenih(string filter) {
+            Filter = filter;
+        }
+
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            //DOPUNI
+            return true;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
