@@ -9,10 +9,11 @@ namespace Server.SistemskeOperacije.SODogadjaj
 {
     internal class VratiListuDogadjaja : OpsteIzvrsenjeSO
     {
-        List<OpstiDomenskiObjekat> Rezultat { get; set; };
+        public List<OpstiDomenskiObjekat> Rezultat { get; set; }
+
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            //dopuni
+            Rezultat = bbp.VratiListuSvih(new Dogadjaj());
             return true;
         }
 

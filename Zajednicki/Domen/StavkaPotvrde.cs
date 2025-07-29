@@ -26,19 +26,19 @@ namespace Zajednicki.Domen
             StavkaPotvrde sp = new StavkaPotvrde();
             sp.Rb = (int)ulaz["rb"];
             sp.Kolicina = (int)ulaz["kolicina"];
-            sp.Cena = (double)ulaz["cena"].ToString();
-            sp.Iznos = (double)ulaz["iznos"].ToString();
-            sp.IdDogadjaj = (int)ulaz["idDogadjaj"];
+            sp.Cena = (double)ulaz["cena"];
+            sp.Iznos = (double)ulaz["iznos"];
 
             Dogadjaj d = new Dogadjaj();
             d.Id = (int)ulaz["id"]; 
             d.Izvodjac = ulaz["izvodjac"].ToString();
-            d.Hala = reader["hala"].ToString();
-            d.Mesto = reader["mesto"].ToString();
-            d.Datum = reader["datum"].ToString();
-            d.Cena = reader["cena1"].ToString(); 
+            d.Hala = ulaz["hala"].ToString();
+            d.Mesto = ulaz["mesto"].ToString();
+            d.Datum = (DateTime)ulaz["datum"];
+            d.Cena = (double)ulaz["cena"]; 
 
             sp.Dogadjaj = d;
+            return sp;
         }
 
         public string Uslov()

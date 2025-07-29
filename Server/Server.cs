@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    internal class Server
+    internal class serverskaForma
     {
         Socket serverskiSoket;
         List<ObradaZahtevaKlijenta> klijenti = new List<ObradaZahtevaKlijenta> ();
 
-        public Server() {
+        public serverskaForma() {
             serverskiSoket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 

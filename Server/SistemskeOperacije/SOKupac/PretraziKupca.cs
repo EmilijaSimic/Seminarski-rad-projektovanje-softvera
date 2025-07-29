@@ -10,7 +10,13 @@ namespace Server.SistemskeOperacije.SOKupac
     internal class PretraziKupca : OpsteIzvrsenjeSO
     {
         public string Filter { get; set; }
-        List<OpstiDomenskiObjekat> Rezultat;
+        public List<OpstiDomenskiObjekat> Rezultat;
+
+        public PretraziKupca(string filter)
+        {
+            Filter = filter;
+        }
+
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
             Rezultat = bbp.PretraziSaJoin(new Kupac(), Filter);

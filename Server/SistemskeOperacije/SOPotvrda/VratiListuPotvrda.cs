@@ -9,9 +9,10 @@ namespace Server.SistemskeOperacije.SOPotvrda
 {
     internal class VratiListuPotvrda : OpsteIzvrsenjeSO
     {
+        public List<OpstiDomenskiObjekat> Rezultat {  get; set; }
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            //dopuni
+            Rezultat = bbp.VratiListuSvihSaJoin(new Potvrda());
             return true;
         }
 

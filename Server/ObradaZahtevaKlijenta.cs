@@ -11,9 +11,9 @@ namespace Server
     internal class ObradaZahtevaKlijenta
     {
         Socket socket;
-        Server server;
+        serverskaForma server;
 
-        public ObradaZahtevaKlijenta(Socket socket, Server server) {
+        public ObradaZahtevaKlijenta(Socket socket, serverskaForma server) {
             this.socket = socket;
             this.server = server;
         }

@@ -16,6 +16,8 @@ namespace Server.SistemskeOperacije.SOPotvrda
             potvrda.Cena = 0;
             foreach (StavkaPotvrde stavka in potvrda.Stavke)
             {
+                stavka.Cena = stavka.Dogadjaj.Cena;
+                stavka.Iznos = stavka.Kolicina * stavka.Cena;
                 potvrda.Cena += stavka.Iznos;
             }
 

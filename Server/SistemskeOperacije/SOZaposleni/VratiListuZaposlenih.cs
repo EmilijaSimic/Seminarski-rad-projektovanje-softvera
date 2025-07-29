@@ -18,8 +18,15 @@ namespace Server.SistemskeOperacije.SOZaposleni
 
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            //DOPUNI
-            return true;
+            if (Filter != null)
+            {
+                Rezultat = bbp.VratiListuSvih(new Zaposleni());
+            }
+            else
+            {
+                Rezultat = bbp.Pretrazi(new Zaposleni(), Filter);
+            }
+                return true;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)

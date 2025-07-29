@@ -57,7 +57,7 @@ namespace Zajednicki.Domen
 
         public string UslovZaPretragu(string filter)
         {
-            return $"LOWER(ime) LIKE CONCAT('%',LOWER('{filter}'),'%')";
+            return $"LOWER(izvodjac) LIKE CONCAT('%',LOWER('{filter}'),'%')";
         }
 
         public string Join()
