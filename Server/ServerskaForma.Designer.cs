@@ -40,6 +40,7 @@
             btnStart.TabIndex = 0;
             btnStart.Text = "Start";
             btnStart.UseVisualStyleBackColor = true;
+            btnStart.Click += btnStart_Click;
             // 
             // btnStop
             // 
@@ -49,15 +50,16 @@
             btnStop.TabIndex = 1;
             btnStop.Text = "Stop";
             btnStop.UseVisualStyleBackColor = true;
+            btnStop.Click += btnStop_Click;
             // 
-            // serverskaForma
+            // ServerskaForma
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnStop);
             Controls.Add(btnStart);
-            Name = "serverskaForma";
+            Name = "ServerskaForma";
             Text = "Server";
             ResumeLayout(false);
         }

@@ -14,11 +14,16 @@ namespace Zajednicki.Komunikacija
         public Posiljalac(Socket socket) { 
             NetworkStream stream = new NetworkStream(socket);
             izlaz = new StreamWriter(stream);
+            izlaz.AutoFlush = true;
         }
 
         public void Posalji(Zahtev zahtev)
         {
             izlaz.WriteLine(JsonSerializer.Serialize(zahtev));
+        }
+
+        public void PosaljiOdgovorKlijentu(Odgovor odgovor) {
+            izlaz.WriteLine(JsonSerializer.Serialize(odgovor));
         }
 
         public void Zatvori()

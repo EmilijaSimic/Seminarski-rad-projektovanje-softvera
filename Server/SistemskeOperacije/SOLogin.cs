@@ -11,9 +11,10 @@ namespace Server.SistemskeOperacije
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            List<OpstiDomenskiObjekat> zaposleni = bbp.VratiListuSvih(odo);
+            List<OpstiDomenskiObjekat> zaposleni = bbp.VratiListuSvih(new Zaposleni());
             Zaposleni login = (Zaposleni)odo;
-            foreach(OpstiDomenskiObjekat objekat in zaposleni)
+
+            foreach (OpstiDomenskiObjekat objekat in zaposleni)
             {
                 Zaposleni z = (Zaposleni)objekat;
                 if(login.KorisnickoIme.Equals(z?.KorisnickoIme) && login.Lozinka.Equals(z?.Lozinka))

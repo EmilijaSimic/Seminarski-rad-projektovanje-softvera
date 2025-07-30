@@ -68,6 +68,7 @@ namespace BazaPodataka
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
+                cmd.Transaction = transaction;
                 SqlDataReader ulaz = cmd.ExecuteReader();
 
                 while (ulaz.Read())
@@ -92,6 +93,7 @@ namespace BazaPodataka
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
+                cmd.Transaction = transaction;
                 int id = (int)cmd.ExecuteScalar();
                 //proveri ovo ispod OBAVEZNO
                 var tip = odo.GetType();
@@ -115,6 +117,7 @@ namespace BazaPodataka
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
+                cmd.Transaction = transaction;
                 int brojRedova = cmd.ExecuteNonQuery();
                 if (brojRedova < 1)
                 {
@@ -134,6 +137,7 @@ namespace BazaPodataka
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
+                cmd.Transaction = transaction;
                 int brojRedova = cmd.ExecuteNonQuery();
                 if (brojRedova < 1)
                 {
@@ -154,6 +158,7 @@ namespace BazaPodataka
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
+                cmd.Transaction = transaction;
                 SqlDataReader ulaz = cmd.ExecuteReader();
 
                 while (ulaz.Read())
@@ -178,6 +183,7 @@ namespace BazaPodataka
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
+                cmd.Transaction = transaction;
                 SqlDataReader ulaz = cmd.ExecuteReader();
 
                 while (ulaz.Read())
@@ -202,6 +208,7 @@ namespace BazaPodataka
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
+                cmd.Transaction = transaction;
                 SqlDataReader ulaz = cmd.ExecuteReader();
 
                 while (ulaz.Read())

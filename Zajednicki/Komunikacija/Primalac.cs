@@ -21,6 +21,11 @@ namespace Zajednicki.Komunikacija
             return JsonSerializer.Deserialize<Odgovor>(ulaz.ReadLine());
         }
 
+        public Zahtev PrimiZahtevOdKlijenta()
+        {
+            return JsonSerializer.Deserialize<Zahtev>(ulaz.ReadLine());
+        }
+
         public void Zatvori()
         {
             ulaz.Close();

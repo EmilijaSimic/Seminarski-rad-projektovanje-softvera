@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    internal class serverskaForma
+    internal class Server
     {
         Socket serverskiSoket;
         List<ObradaZahtevaKlijenta> klijenti = new List<ObradaZahtevaKlijenta> ();
 
-        public serverskaForma() {
+        public Server() {
             serverskiSoket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
         public void Osluskuj()
         {
             serverskiSoket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999));
-            NetworkStream stream = new NetworkStream(serverskiSoket);
+            serverskiSoket.Listen();
         }
 
         public void Pokreni()
