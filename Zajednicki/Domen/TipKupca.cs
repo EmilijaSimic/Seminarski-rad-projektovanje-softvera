@@ -13,6 +13,13 @@ namespace Zajednicki.Domen
         public string Naziv { get; set; }
         public double Popust { get; set; }
 
+        public TipKupca() { }
+        public TipKupca(int id, string naziv, double popust)
+        {
+            Id = id;
+            Naziv = naziv;
+            Popust = popust;
+        }
         public string Join()
         {
             throw new NotImplementedException();

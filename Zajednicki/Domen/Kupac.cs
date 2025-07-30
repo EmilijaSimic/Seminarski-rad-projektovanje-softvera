@@ -19,6 +19,17 @@ namespace Zajednicki.Domen
         public bool Aktivan {  get; set; }
         public TipKupca TipKupca { get; set; }
 
+        public Kupac() { }
+        public Kupac(int id, string ime, string prezime, string telefon, string brojPlatneKratice, bool aktivan, TipKupca tipKupca) {
+            Id = id;
+            Ime = ime;
+            Prezime = prezime;
+            Telefon = telefon;
+            BrojPlatneKartice = brojPlatneKratice;
+            Aktivan = aktivan;
+            TipKupca = tipKupca;
+        }
+
         public string Join()
         {
             return "k JOIN TipKupca tk on (k.idTipKupca = tk.id)";

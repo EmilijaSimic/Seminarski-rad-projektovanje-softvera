@@ -14,6 +14,15 @@ namespace Zajednicki.Domen
         public DateTime DatumPocetka { get; set; }
         public DateTime DatumZavrsetka { get; set; }
 
+        public PozicijaZaposlenog() { }
+        public PozicijaZaposlenog(Zaposleni zaposleni, Pozicija pozicija, DateTime datumPocetka, DateTime datumKraja)
+        {
+            Zaposleni = zaposleni;
+            Pozicija = pozicija;
+            DatumPocetka = datumPocetka;
+            DatumZavrsetka = datumKraja;
+        }
+
         public string Join()
         {
             throw new NotImplementedException();

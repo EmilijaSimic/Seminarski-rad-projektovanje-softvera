@@ -12,6 +12,13 @@ namespace Zajednicki.Domen
         public int Id { get; set; }
         public string Naziv { get; set; }
 
+        public Pozicija() { }
+        public Pozicija(int id, string naziv)
+        {
+            Id = id;
+            Naziv = naziv;
+        }
+
         public string Join()
         {
             throw new NotImplementedException();

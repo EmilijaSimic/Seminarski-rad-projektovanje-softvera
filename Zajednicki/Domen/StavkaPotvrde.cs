@@ -16,6 +16,17 @@ namespace Zajednicki.Domen
         public double Iznos {  get; set; }
         public Dogadjaj Dogadjaj { get; set; }
 
+        public StavkaPotvrde() { }
+        public StavkaPotvrde(int rb, Potvrda potvrda, int kolicina, double cena, double iznos, Dogadjaj dogadjaj)
+        {
+            Rb = rb;
+            Potvrda = potvrda;
+            Kolicina = kolicina;
+            Cena = cena;
+            Iznos = iznos;
+            Dogadjaj = dogadjaj;
+        }
+
         public string Join()
         {
             return "s join Dogadjaj d on (s.idDogadjaj = d.id)";

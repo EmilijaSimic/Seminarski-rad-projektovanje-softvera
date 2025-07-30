@@ -16,6 +16,17 @@ namespace Zajednicki.Domen
         public DateTime Datum { get; set; }
         public double Cena { get; set; }
 
+        public Dogadjaj() { }
+        public Dogadjaj(int id, string izvodjac, string hala, string mesto, DateTime datum, double cena)
+        {
+            Id = id;
+            Izvodjac = izvodjac;
+            Hala = hala;
+            Mesto = mesto;
+            Datum = datum;
+            Cena = cena;
+        }
+
         public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
         {
             Dogadjaj d = new Dogadjaj();

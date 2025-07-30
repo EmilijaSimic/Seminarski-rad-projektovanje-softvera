@@ -19,6 +19,18 @@ namespace Zajednicki.Domen
         public Kupac Kupac { get; set; }
         public List<StavkaPotvrde> Stavke { get; set; } = new List<StavkaPotvrde>();
 
+        public Potvrda() { }
+        public Potvrda(int id, DateTime datum, double cena, double popust, double iznosUkupno, Zaposleni zaposleni, Kupac kupac, List<StavkaPotvrde> stavke)
+        {
+            Id = id; 
+            Datum = datum; 
+            Cena = cena; 
+            Popust = popust;
+            IznosUkupno = iznosUkupno;
+            Zaposleni = zaposleni;
+            Kupac = kupac;
+            Stavke = stavke;
+        }
         public string Join()
         {
             return "p JOIN Kupac k on (p.idKupac = k.id) JOIN Zaposleni z on (p.idZaposleni = z.id)";

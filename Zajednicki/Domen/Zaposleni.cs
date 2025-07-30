@@ -16,6 +16,17 @@ namespace Zajednicki.Domen
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
 
+        public Zaposleni() { }
+        public Zaposleni(int id, string jmbg, string ime, string prezime, string korisnickoIme, string lozinka)
+        {
+            Id = id;
+            Jmbg = jmbg;
+            Ime = ime;
+            Prezime = prezime;
+            KorisnickoIme = korisnickoIme;
+            Lozinka = lozinka;
+        }
+
         public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
         {
             Zaposleni z = new Zaposleni();
