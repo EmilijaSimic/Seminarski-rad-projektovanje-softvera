@@ -35,7 +35,7 @@ namespace Zajednicki.Domen
             d.Hala = ulaz["hala"].ToString();
             d.Mesto = ulaz["mesto"].ToString();
             d.Datum = (DateTime)ulaz["datum"];
-            d.Cena = (double)ulaz["korisnickoIme"];
+            d.Cena = (double)ulaz["cena"];
 
             return d;
         }

@@ -41,7 +41,7 @@ namespace BazaPodataka
                 transaction.Commit();
             }
             catch (SqlException ex) {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u potvrdi transakciju: " + ex.Message);
                 return false;
             }
             return true;
@@ -55,7 +55,7 @@ namespace BazaPodataka
             }
             catch (SqlException ex)
             {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u odbaci transakciju: " + ex.Message);
                 return false;
             }
             return true;
@@ -65,11 +65,12 @@ namespace BazaPodataka
         {
             List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
             string upit = "SELECT * FROM " + odo.VratiNazivTabele();
+            SqlDataReader ulaz = null;
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
                 cmd.Transaction = transaction;
-                SqlDataReader ulaz = cmd.ExecuteReader();
+                ulaz = cmd.ExecuteReader();
 
                 while (ulaz.Read())
                 {
@@ -81,15 +82,19 @@ namespace BazaPodataka
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u vrati listu svih: " + ex.Message);
+            }
+            finally
+            {
+                ulaz?.Close();
             }
             return objekti;
         }
 
         public bool Kreiraj(OpstiDomenskiObjekat odo)
         {
-            string upit = "INSERT INTO " + odo.VratiNazivTabele() + " (" + odo.VratiNaziveKolona + ") output inserted.id VALUES (" + odo.VratiVrednostiKolona + ")";
-
+            string upit = "INSERT INTO " + odo.VratiNazivTabele() + " (" + odo.VratiNaziveKolona() + ") output inserted.id VALUES (" + odo.VratiVrednostiKolona() + ")";
+            Debug.WriteLine(upit);
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
@@ -105,7 +110,7 @@ namespace BazaPodataka
             }
             catch (SqlException ex)
             {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u kreiraj: " + ex.Message);
                 return false;
             }
             return true;
@@ -113,7 +118,7 @@ namespace BazaPodataka
         public bool Promeni(OpstiDomenskiObjekat odo)
         {
             string upit = "UPDATE " + odo.VratiNazivTabele() + " SET " + odo.VratiVrednostiZaPromenu() + " WHERE " + odo.Uslov();
-
+            Debug.WriteLine(upit);
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
@@ -126,7 +131,7 @@ namespace BazaPodataka
             }
             catch (SqlException ex)
             {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u promeni: " + ex.Message);
                 return false;
             }
             return true;
@@ -134,6 +139,7 @@ namespace BazaPodataka
         public bool Obrisi(OpstiDomenskiObjekat odo)
         {
             string upit = "DELETE FROM " + odo.VratiNazivTabele() + " WHERE " + odo.Uslov();
+            Debug.WriteLine(upit);
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
@@ -145,7 +151,7 @@ namespace BazaPodataka
                 }
             }
             catch (SqlException ex) {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u obrisi: " + ex.Message);
                 return false;
             }
             return true;
@@ -155,11 +161,13 @@ namespace BazaPodataka
         {
             List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
             string upit = "SELECT * FROM " + odo.VratiNazivTabele() + " WHERE " + odo.UslovZaPretragu(filter);
+            Debug.WriteLine(upit);
+            SqlDataReader ulaz = null;
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
                 cmd.Transaction = transaction;
-                SqlDataReader ulaz = cmd.ExecuteReader();
+                ulaz = cmd.ExecuteReader();
 
                 while (ulaz.Read())
                 {
@@ -171,7 +179,11 @@ namespace BazaPodataka
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u pretrazi: " + ex.Message);
+            }
+            finally
+            {
+                ulaz?.Close();
             }
             return objekti;
         }
@@ -180,11 +192,13 @@ namespace BazaPodataka
         {
             List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
             string upit = "SELECT * FROM " + odo.VratiNazivTabele() + " " + odo.Join();
+            Debug.WriteLine(upit);
+            SqlDataReader ulaz = null;
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
                 cmd.Transaction = transaction;
-                SqlDataReader ulaz = cmd.ExecuteReader();
+                ulaz = cmd.ExecuteReader();
 
                 while (ulaz.Read())
                 {
@@ -196,7 +210,11 @@ namespace BazaPodataka
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u vrati listu svih sa join: " + ex.Message);
+            }
+            finally
+            {
+                ulaz?.Close();
             }
             return objekti;
         }
@@ -205,11 +223,13 @@ namespace BazaPodataka
         {
             List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
             string upit = "SELECT * FROM " + odo.VratiNazivTabele() + " " + odo.Join() + " WHERE " + odo.UslovZaPretragu(filter);
+            Debug.WriteLine(upit);
+            SqlDataReader ulaz = null;
             try
             {
                 SqlCommand cmd = new SqlCommand(upit, connection);
                 cmd.Transaction = transaction;
-                SqlDataReader ulaz = cmd.ExecuteReader();
+                ulaz = cmd.ExecuteReader();
 
                 while (ulaz.Read())
                 {
@@ -221,7 +241,11 @@ namespace BazaPodataka
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(">>> " + ex.Message);
+                Debug.WriteLine(">>> Greska u pretrazi sa join: " + ex.Message);
+            }
+            finally
+            {
+                ulaz?.Close();
             }
             return objekti;
         }

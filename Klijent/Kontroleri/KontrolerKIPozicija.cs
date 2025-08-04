@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Zajednicki.Domen;
 using Zajednicki.Komunikacija;
@@ -50,7 +51,9 @@ namespace Klijent.Kontroleri
                 Zahtev zahtev = new Zahtev();
                 zahtev.Operacija = Operacija.VRATI_LISTU_POZICIJA;
                 PosaljiZahtev(zahtev);
-                return PrimiOdgovor();
+                Odgovor odgovor = PrimiOdgovor();
+                odgovor.Podaci = JsonSerializer.Deserialize<List<Pozicija>>(((JsonElement)odgovor.Podaci).GetRawText());
+                return odgovor;
             }
             catch (Exception ex)
             {

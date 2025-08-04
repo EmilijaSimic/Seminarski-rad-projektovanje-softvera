@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Zajednicki.Domen;
 using Zajednicki.Komunikacija;
@@ -68,7 +69,9 @@ namespace Klijent.Kontroleri
                 zahtev.Operacija = Operacija.PRETRAZI_ZAPOSLENOG;
                 zahtev.Podaci = filter;
                 PosaljiZahtev(zahtev);
-                return PrimiOdgovor();
+                Odgovor odgovor = PrimiOdgovor();
+                odgovor.Podaci = JsonSerializer.Deserialize<List<Zaposleni>>(((JsonElement)odgovor.Podaci).GetRawText());
+                return odgovor;
             }
             catch (Exception ex)
             {
@@ -101,7 +104,9 @@ namespace Klijent.Kontroleri
                 Zahtev zahtev = new Zahtev();
                 zahtev.Operacija = Operacija.VRATI_LISTU_ZAPOSLENIH;
                 PosaljiZahtev(zahtev);
-                return PrimiOdgovor();
+                Odgovor odgovor = PrimiOdgovor();
+                odgovor.Podaci = JsonSerializer.Deserialize<List<Zaposleni>>(((JsonElement)odgovor.Podaci).GetRawText());
+                return odgovor;
             }
             catch (Exception ex)
             {

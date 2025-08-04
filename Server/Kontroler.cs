@@ -45,10 +45,11 @@ namespace Server
             return so.OpsteIzvrsiSO(dogadjaj);
         }
 
-        public bool PretraziDogadjaj(Dogadjaj dogadjaj, string filter)
+        public List<Dogadjaj> PretraziDogadjaj(string filter)
         {
             PretraziDogadjaj so = new PretraziDogadjaj(filter);
-            return so.OpsteIzvrsiSO(dogadjaj);
+            so.OpsteIzvrsiSO(new Dogadjaj());
+            return so.Rezultat.Cast<Dogadjaj>().ToList();
         }
 
         public bool PromeniDogadjaj(Dogadjaj dogadjaj)
@@ -57,10 +58,10 @@ namespace Server
             return so.OpsteIzvrsiSO(dogadjaj);
         }
 
-        public List<Dogadjaj> VratiListuDogadjaja(Dogadjaj dogadjaj)
+        public List<Dogadjaj> VratiListuDogadjaja()
         {
             VratiListuDogadjaja so = new VratiListuDogadjaja();
-            so.OpsteIzvrsiSO(dogadjaj);
+            so.OpsteIzvrsiSO(new Dogadjaj());
             return so.Rezultat.Cast<Dogadjaj>().ToList();
         }
         public bool KreirajKupca(Kupac kupac)
@@ -73,20 +74,20 @@ namespace Server
             ObrisiKupca so = new ObrisiKupca();
             return so.OpsteIzvrsiSO(kupac);
         }
-        public bool PretraziKupca(Kupac kupac, string filter)
+        public bool PretraziKupca(string filter)
         {
             PretraziKupca so = new PretraziKupca(filter);
-            return so.OpsteIzvrsiSO(kupac);
+            return so.OpsteIzvrsiSO(new Kupac());
         }
         public bool PromeniKupca(Kupac kupac)
         {
             PromeniKupca so = new PromeniKupca();
             return so.OpsteIzvrsiSO(kupac);
         }
-        public List<Kupac> VratiListuKupaca(Kupac kupac)
+        public List<Kupac> VratiListuKupaca()
         {
             VratiListuKupaca so = new VratiListuKupaca();
-            so.OpsteIzvrsiSO(kupac);
+            so.OpsteIzvrsiSO(new Kupac());
             return so.Rezultat.Cast<Kupac>().ToList();
         }
 
@@ -100,10 +101,10 @@ namespace Server
             PromeniPotvrdu so = new PromeniPotvrdu();
             return so.OpsteIzvrsiSO(potvrda);
         }
-        public List<Potvrda> VratiListuPotvrda(Potvrda potvrda)
+        public List<Potvrda> VratiListuPotvrda()
         {
             VratiListuPotvrda so = new VratiListuPotvrda();
-            so.OpsteIzvrsiSO(potvrda);
+            so.OpsteIzvrsiSO(new Potvrda());
             return so.Rezultat.Cast<Potvrda>().ToList();    
         }
         public bool PromeniPoziciju(Pozicija pozicija)
@@ -111,16 +112,16 @@ namespace Server
             PromeniPoziciju so = new PromeniPoziciju();
             return so.OpsteIzvrsiSO(pozicija);
         }
-        public List<Pozicija> VratiListuPozicija(Pozicija pozicija)
+        public List<Pozicija> VratiListuPozicija()
         {
             VratiListuPozicija so = new VratiListuPozicija();
-            so.OpsteIzvrsiSO(pozicija);
+            so.OpsteIzvrsiSO(new Pozicija());
             return so.Rezultat.Cast<Pozicija>().ToList();
         }
-        public List<StavkaPotvrde> VratiListuStavkiPotvrde(StavkaPotvrde stavkaPotvrde, string filter)
+        public List<StavkaPotvrde> VratiListuStavkiPotvrde(string filter)
         {
             VratiListuStavkiPotvrde so = new VratiListuStavkiPotvrde(filter);
-            so.OpsteIzvrsiSO(stavkaPotvrde);
+            so.OpsteIzvrsiSO(new StavkaPotvrde());
             return so.Rezultat.Cast<StavkaPotvrde>().ToList();
         }
         public bool PromeniTipKupca(TipKupca tipKupca)
@@ -128,10 +129,10 @@ namespace Server
             PromeniTipKupca so = new PromeniTipKupca();
             return so.OpsteIzvrsiSO(tipKupca);
         }
-        public List<TipKupca> VratiListuTipKupaca(TipKupca tipKupca)
+        public List<TipKupca> VratiListuTipKupaca()
         {
             VratiListuTipKupaca so = new VratiListuTipKupaca();
-            so.OpsteIzvrsiSO(tipKupca);
+            so.OpsteIzvrsiSO(new TipKupca());
             return so.Rezultat.Cast<TipKupca>().ToList();
         }
         public bool KreirajZaposlenog(Zaposleni zaposleni)
@@ -144,20 +145,20 @@ namespace Server
             ObrisiZaposlenog so = new ObrisiZaposlenog();
             return so.OpsteIzvrsiSO(zaposleni);
         }
-        public bool PretraziZaposlenog(Zaposleni zaposleni, string filter)
+        public bool PretraziZaposlenog(string filter)
         {
             PretraziZaposlenog so = new PretraziZaposlenog(filter);
-            return so.OpsteIzvrsiSO(zaposleni);
+            return so.OpsteIzvrsiSO(new Zaposleni());
         }
         public bool PromeniZaposlenog(Zaposleni zaposleni)
         {
             PromeniZaposlenog so = new PromeniZaposlenog();
             return so.OpsteIzvrsiSO(zaposleni);
         }
-        public List<Zaposleni> VratiListuZaposlenih(Zaposleni zaposleni, string filter)
+        public List<Zaposleni> VratiListuZaposlenih(string filter)
         {
             VratiListuZaposlenih so = new VratiListuZaposlenih(filter);
-            so.OpsteIzvrsiSO(zaposleni);
+            so.OpsteIzvrsiSO(new Zaposleni());
             return so.Rezultat.Cast<Zaposleni>().ToList();
         }
 

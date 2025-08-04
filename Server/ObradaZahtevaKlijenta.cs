@@ -53,12 +53,11 @@ namespace Server
         private void ObradiZahtev(Zahtev zahtev)
         {
             Kontroler kontroler = Kontroler.Instance;
+            Odgovor odgovor = new Odgovor();
             switch (zahtev.Operacija)
             {
                 case(Operacija.LOGIN):
-                    JsonElement jsonElement = (JsonElement)zahtev.Podaci;
-                    Zaposleni zaposleni = JsonSerializer.Deserialize<Zaposleni>(jsonElement.GetRawText());
-                    Odgovor odgovor = new Odgovor();
+                    Zaposleni zaposleni = JsonSerializer.Deserialize<Zaposleni>(((JsonElement)zahtev.Podaci).GetRawText());
                     if(kontroler.Login(zaposleni) && !VecUlogovan(zaposleni))
                     {
                         ulogovaniZaposleni.Add(zaposleni);
@@ -68,6 +67,52 @@ namespace Server
                     {
                         odgovor.Uspesno=false;
                     }
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.VRATI_LISTU_DOGADJAJA):
+                    odgovor.Uspesno = true;
+                    odgovor.Podaci = kontroler.VratiListuDogadjaja();
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.KREIRAJ_DOGADJAJ):
+                    Dogadjaj dogadjajNovi = JsonSerializer.Deserialize<Dogadjaj>(((JsonElement)zahtev.Podaci).GetRawText());
+                    if (kontroler.KreirajDogadjaj(dogadjajNovi))
+                    {
+                        odgovor.Uspesno = true;
+                    }
+                    else {
+                        odgovor.Uspesno = false;
+                    }
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.OBRISI_DOGADJAJ):
+                    Dogadjaj dogadjajObr = JsonSerializer.Deserialize<Dogadjaj>(((JsonElement)zahtev.Podaci).GetRawText());
+                    if (kontroler.ObrisiDogadjaj(dogadjajObr))
+                    {
+                        odgovor.Uspesno = true;
+                    }
+                    else
+                    {
+                        odgovor.Uspesno = false;
+                    }
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.PROMENI_DOGADJAJ):
+                    Dogadjaj dogadjajPr = JsonSerializer.Deserialize<Dogadjaj>(((JsonElement)zahtev.Podaci).GetRawText());
+                    if (kontroler.PromeniDogadjaj(dogadjajPr))
+                    {
+                        odgovor.Uspesno = true;
+                    }
+                    else
+                    {
+                        odgovor.Uspesno = false;
+                    }
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.PRETRAZI_DOGADJAJ):
+                    string filterDogadjaj = JsonSerializer.Deserialize<string>(((JsonElement)zahtev.Podaci).GetRawText());
+                    odgovor.Podaci = kontroler.PretraziDogadjaj(filterDogadjaj);
+                    odgovor.Uspesno = true;
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
             }
