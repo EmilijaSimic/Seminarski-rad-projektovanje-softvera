@@ -115,6 +115,58 @@ namespace Server
                     odgovor.Uspesno = true;
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
+                case (Operacija.VRATI_LISTU_TIP_KUPACA):
+                    odgovor.Uspesno = true;
+                    odgovor.Podaci = kontroler.VratiListuTipKupaca();
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.KREIRAJ_KUPCA):
+                    Kupac kupacNovi = JsonSerializer.Deserialize<Kupac>(((JsonElement)zahtev.Podaci).GetRawText());
+                    if (kontroler.KreirajKupca(kupacNovi))
+                    {
+                        odgovor.Uspesno = true;
+                    }
+                    else
+                    {
+                        odgovor.Uspesno = false;
+                    }
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.OBRISI_KUPCA):
+                    Kupac kupacObr = JsonSerializer.Deserialize<Kupac>(((JsonElement)zahtev.Podaci).GetRawText());
+                    if (kontroler.ObrisiKupca(kupacObr))
+                    {
+                        odgovor.Uspesno = true;
+                    }
+                    else
+                    {
+                        odgovor.Uspesno = false;
+                    }
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.PROMENI_KUPCA):
+                    Kupac kupacPr = JsonSerializer.Deserialize<Kupac>(((JsonElement)zahtev.Podaci).GetRawText());
+                    if (kontroler.PromeniKupca(kupacPr))
+                    {
+                        odgovor.Uspesno = true;
+                    }
+                    else
+                    {
+                        odgovor.Uspesno = false;
+                    }
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.PRETRAZI_KUPCA):
+                    string filterKupac = JsonSerializer.Deserialize<string>(((JsonElement)zahtev.Podaci).GetRawText());
+                    odgovor.Podaci = kontroler.PretraziKupca(filterKupac);
+                    odgovor.Uspesno = true;
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.VRATI_LISTU_KUPACA):
+                    odgovor.Uspesno = true;
+                    odgovor.Podaci = kontroler.VratiListuKupaca();
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
             }
         }
 

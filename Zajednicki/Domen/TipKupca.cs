@@ -65,5 +65,10 @@ namespace Zajednicki.Domen
             return $"naziv = '{Naziv}', popust = {Popust.ToString(System.Globalization.CultureInfo.InvariantCulture)}";
         }
 
+        public override string ToString()
+        {
+            return Naziv;
+        }
+
     }
 }
