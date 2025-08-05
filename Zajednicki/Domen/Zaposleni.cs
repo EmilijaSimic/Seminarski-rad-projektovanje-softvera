@@ -15,6 +15,7 @@ namespace Zajednicki.Domen
         public string Prezime {  get; set; }
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
+        public List<PozicijaZaposlenog> Pozicije {  get; set; }
 
         public Zaposleni() { }
         public Zaposleni(int id, string jmbg, string ime, string prezime, string korisnickoIme, string lozinka)

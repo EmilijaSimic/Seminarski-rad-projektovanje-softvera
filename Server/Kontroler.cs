@@ -74,10 +74,11 @@ namespace Server
             ObrisiKupca so = new ObrisiKupca();
             return so.OpsteIzvrsiSO(kupac);
         }
-        public bool PretraziKupca(string filter)
+        public List<Kupac> PretraziKupca(string filter)
         {
             PretraziKupca so = new PretraziKupca(filter);
-            return so.OpsteIzvrsiSO(new Kupac());
+            so.OpsteIzvrsiSO(new Kupac());
+            return so.Rezultat.Cast<Kupac>().ToList();
         }
         public bool PromeniKupca(Kupac kupac)
         {
@@ -145,10 +146,11 @@ namespace Server
             ObrisiZaposlenog so = new ObrisiZaposlenog();
             return so.OpsteIzvrsiSO(zaposleni);
         }
-        public bool PretraziZaposlenog(string filter)
+        public List<Zaposleni> PretraziZaposlenog(string filter)
         {
             PretraziZaposlenog so = new PretraziZaposlenog(filter);
-            return so.OpsteIzvrsiSO(new Zaposleni());
+            so.OpsteIzvrsiSO(new Zaposleni());
+            return so.Rezultat.Cast<Zaposleni>().ToList();
         }
         public bool PromeniZaposlenog(Zaposleni zaposleni)
         {

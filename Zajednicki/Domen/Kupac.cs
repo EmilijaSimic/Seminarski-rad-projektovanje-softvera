@@ -54,7 +54,7 @@ namespace Zajednicki.Domen
 
         public string Uslov()
         {
-            throw new NotImplementedException();
+            return $"id = {Id}"; 
         }
 
         public string UslovZaPretragu(string filter)

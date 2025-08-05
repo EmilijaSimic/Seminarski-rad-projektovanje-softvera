@@ -96,14 +96,14 @@
             // dodajKupcaToolStripMenuItem
             // 
             dodajKupcaToolStripMenuItem.Name = "dodajKupcaToolStripMenuItem";
-            dodajKupcaToolStripMenuItem.Size = new Size(224, 26);
+            dodajKupcaToolStripMenuItem.Size = new Size(176, 26);
             dodajKupcaToolStripMenuItem.Text = "Dodaj kupca";
             dodajKupcaToolStripMenuItem.Click += dodajKupcaToolStripMenuItem_Click;
             // 
             // sviKupciToolStripMenuItem
             // 
             sviKupciToolStripMenuItem.Name = "sviKupciToolStripMenuItem";
-            sviKupciToolStripMenuItem.Size = new Size(224, 26);
+            sviKupciToolStripMenuItem.Size = new Size(176, 26);
             sviKupciToolStripMenuItem.Text = "Svi kupci";
             sviKupciToolStripMenuItem.Click += sviKupciToolStripMenuItem_Click;
             // 
@@ -132,8 +132,8 @@
             // 
             povrdaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novaPotvrdaToolStripMenuItem, svePotvrdeToolStripMenuItem });
             povrdaToolStripMenuItem.Name = "povrdaToolStripMenuItem";
-            povrdaToolStripMenuItem.Size = new Size(68, 24);
-            povrdaToolStripMenuItem.Text = "Povrda";
+            povrdaToolStripMenuItem.Size = new Size(73, 24);
+            povrdaToolStripMenuItem.Text = "Potvrda";
             // 
             // novaPotvrdaToolStripMenuItem
             // 

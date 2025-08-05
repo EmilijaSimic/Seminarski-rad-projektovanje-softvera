@@ -11,7 +11,7 @@ namespace Server.SistemskeOperacije.SOKupac
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            Kupac kupac = new Kupac();
+            Kupac kupac = (Kupac)odo;
             return bbp.Obrisi(kupac);
         }
 
