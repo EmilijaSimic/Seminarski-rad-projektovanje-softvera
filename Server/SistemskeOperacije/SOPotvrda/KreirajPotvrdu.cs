@@ -32,7 +32,7 @@ namespace Server.SistemskeOperacije.SOPotvrda
             foreach (StavkaPotvrde stavka in potvrda.Stavke)
             {
                 stavka.Potvrda.Id = potvrda.Id; 
-                if (!bbp.Kreiraj(stavka))
+                if (!bbp.KreirajZavisneObjekte(stavka))
                 {
                     return false;
                 }

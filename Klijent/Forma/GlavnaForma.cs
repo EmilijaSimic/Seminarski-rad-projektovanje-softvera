@@ -43,12 +43,12 @@ namespace Klijent.Forma
 
         private void dodajZaposlenogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PrikaziKontrolu(new UCZaposleni()); 
         }
 
         private void sviZaposleniToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PrikaziKontrolu(new UCZaposleni());
         }
 
         private void novaPotvrdaToolStripMenuItem_Click(object sender, EventArgs e)

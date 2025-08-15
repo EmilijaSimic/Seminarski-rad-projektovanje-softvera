@@ -28,244 +28,258 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelDogadjaj = new Panel();
-            btnPromeniDogadjaj = new Button();
-            btnIzmeniDogadjaj2 = new Button();
-            btnObrisiDogadjaj = new Button();
-            btnNapraviDogadjaj = new Button();
-            txtPretraziDogađaj = new TextBox();
-            txtCena = new TextBox();
-            btnPretraziDogadjaj = new Button();
-            txtDatum = new TextBox();
-            label6 = new Label();
-            txtMesto = new TextBox();
-            dgvDogadjaji = new DataGridView();
-            txtHala = new TextBox();
-            txtIzvodjac = new TextBox();
+            panelZaposleni = new Panel();
+            dateTimeKraj = new DateTimePicker();
+            dateTimePocetak = new DateTimePicker();
+            comboBoxPozicije = new ComboBox();
+            btnPromeniZaposlenog = new Button();
+            btnIzmeniZaposlenog2 = new Button();
+            btnObrisiZaposlenog = new Button();
+            btnNapraviZaposlenog = new Button();
+            txtLozinka = new TextBox();
+            btnDodajPoziciju = new Button();
+            txtKorIme = new TextBox();
+            txtPrezime = new TextBox();
+            dgvZaposleni = new DataGridView();
+            txtIme = new TextBox();
+            txtJMBG = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            panelDogadjaj.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDogadjaji).BeginInit();
+            panelZaposleni.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvZaposleni).BeginInit();
             SuspendLayout();
             // 
-            // panelDogadjaj
+            // panelZaposleni
             // 
-            panelDogadjaj.Controls.Add(btnPromeniDogadjaj);
-            panelDogadjaj.Controls.Add(btnIzmeniDogadjaj2);
-            panelDogadjaj.Controls.Add(btnObrisiDogadjaj);
-            panelDogadjaj.Controls.Add(btnNapraviDogadjaj);
-            panelDogadjaj.Controls.Add(txtPretraziDogađaj);
-            panelDogadjaj.Controls.Add(txtCena);
-            panelDogadjaj.Controls.Add(btnPretraziDogadjaj);
-            panelDogadjaj.Controls.Add(txtDatum);
-            panelDogadjaj.Controls.Add(label6);
-            panelDogadjaj.Controls.Add(txtMesto);
-            panelDogadjaj.Controls.Add(dgvDogadjaji);
-            panelDogadjaj.Controls.Add(txtHala);
-            panelDogadjaj.Controls.Add(txtIzvodjac);
-            panelDogadjaj.Controls.Add(label5);
-            panelDogadjaj.Controls.Add(label4);
-            panelDogadjaj.Controls.Add(label3);
-            panelDogadjaj.Controls.Add(label2);
-            panelDogadjaj.Controls.Add(label1);
-            panelDogadjaj.Location = new Point(5, 3);
-            panelDogadjaj.Name = "panelDogadjaj";
-            panelDogadjaj.Size = new Size(954, 420);
-            panelDogadjaj.TabIndex = 4;
+            panelZaposleni.Controls.Add(dateTimeKraj);
+            panelZaposleni.Controls.Add(dateTimePocetak);
+            panelZaposleni.Controls.Add(comboBoxPozicije);
+            panelZaposleni.Controls.Add(btnPromeniZaposlenog);
+            panelZaposleni.Controls.Add(btnIzmeniZaposlenog2);
+            panelZaposleni.Controls.Add(btnObrisiZaposlenog);
+            panelZaposleni.Controls.Add(btnNapraviZaposlenog);
+            panelZaposleni.Controls.Add(txtLozinka);
+            panelZaposleni.Controls.Add(btnDodajPoziciju);
+            panelZaposleni.Controls.Add(txtKorIme);
+            panelZaposleni.Controls.Add(txtPrezime);
+            panelZaposleni.Controls.Add(dgvZaposleni);
+            panelZaposleni.Controls.Add(txtIme);
+            panelZaposleni.Controls.Add(txtJMBG);
+            panelZaposleni.Controls.Add(label5);
+            panelZaposleni.Controls.Add(label4);
+            panelZaposleni.Controls.Add(label3);
+            panelZaposleni.Controls.Add(label2);
+            panelZaposleni.Controls.Add(label1);
+            panelZaposleni.Location = new Point(5, 3);
+            panelZaposleni.Name = "panelZaposleni";
+            panelZaposleni.Size = new Size(954, 420);
+            panelZaposleni.TabIndex = 4;
             // 
-            // btnPromeniDogadjaj
+            // dateTimeKraj
             // 
-            btnPromeniDogadjaj.BackColor = SystemColors.ButtonHighlight;
-            btnPromeniDogadjaj.Location = new Point(843, 354);
-            btnPromeniDogadjaj.Name = "btnPromeniDogadjaj";
-            btnPromeniDogadjaj.Size = new Size(94, 44);
-            btnPromeniDogadjaj.TabIndex = 5;
-            btnPromeniDogadjaj.Text = "Izmeni";
-            btnPromeniDogadjaj.UseVisualStyleBackColor = false;
+            dateTimeKraj.Location = new Point(577, 62);
+            dateTimeKraj.Name = "dateTimeKraj";
+            dateTimeKraj.Size = new Size(250, 27);
+            dateTimeKraj.TabIndex = 14;
             // 
-            // btnIzmeniDogadjaj2
+            // dateTimePocetak
             // 
-            btnIzmeniDogadjaj2.BackColor = SystemColors.ButtonHighlight;
-            btnIzmeniDogadjaj2.Location = new Point(29, 319);
-            btnIzmeniDogadjaj2.Name = "btnIzmeniDogadjaj2";
-            btnIzmeniDogadjaj2.Size = new Size(299, 48);
-            btnIzmeniDogadjaj2.TabIndex = 11;
-            btnIzmeniDogadjaj2.Text = "Izmeni";
-            btnIzmeniDogadjaj2.UseVisualStyleBackColor = false;
+            dateTimePocetak.Location = new Point(577, 23);
+            dateTimePocetak.Name = "dateTimePocetak";
+            dateTimePocetak.Size = new Size(250, 27);
+            dateTimePocetak.TabIndex = 13;
             // 
-            // btnObrisiDogadjaj
+            // comboBoxPozicije
             // 
-            btnObrisiDogadjaj.BackColor = SystemColors.ButtonHighlight;
-            btnObrisiDogadjaj.Location = new Point(843, 294);
-            btnObrisiDogadjaj.Name = "btnObrisiDogadjaj";
-            btnObrisiDogadjaj.Size = new Size(94, 44);
-            btnObrisiDogadjaj.TabIndex = 4;
-            btnObrisiDogadjaj.Text = "Obriši";
-            btnObrisiDogadjaj.UseVisualStyleBackColor = false;
+            comboBoxPozicije.FormattingEnabled = true;
+            comboBoxPozicije.Location = new Point(390, 46);
+            comboBoxPozicije.Name = "comboBoxPozicije";
+            comboBoxPozicije.Size = new Size(151, 28);
+            comboBoxPozicije.TabIndex = 12;
             // 
-            // btnNapraviDogadjaj
+            // btnPromeniZaposlenog
             // 
-            btnNapraviDogadjaj.BackColor = SystemColors.ButtonHighlight;
-            btnNapraviDogadjaj.Location = new Point(27, 290);
-            btnNapraviDogadjaj.Name = "btnNapraviDogadjaj";
-            btnNapraviDogadjaj.Size = new Size(299, 48);
-            btnNapraviDogadjaj.TabIndex = 10;
-            btnNapraviDogadjaj.Text = "Napravi";
-            btnNapraviDogadjaj.UseVisualStyleBackColor = false;
+            btnPromeniZaposlenog.BackColor = SystemColors.ButtonHighlight;
+            btnPromeniZaposlenog.Location = new Point(843, 354);
+            btnPromeniZaposlenog.Name = "btnPromeniZaposlenog";
+            btnPromeniZaposlenog.Size = new Size(94, 44);
+            btnPromeniZaposlenog.TabIndex = 5;
+            btnPromeniZaposlenog.Text = "Izmeni";
+            btnPromeniZaposlenog.UseVisualStyleBackColor = false;
+            btnPromeniZaposlenog.Click += btnPromeniZaposlenog_Click;
             // 
-            // txtPretraziDogađaj
+            // btnIzmeniZaposlenog2
             // 
-            txtPretraziDogađaj.Location = new Point(390, 67);
-            txtPretraziDogađaj.Name = "txtPretraziDogađaj";
-            txtPretraziDogađaj.Size = new Size(416, 27);
-            txtPretraziDogađaj.TabIndex = 3;
+            btnIzmeniZaposlenog2.BackColor = SystemColors.ButtonHighlight;
+            btnIzmeniZaposlenog2.Location = new Point(29, 319);
+            btnIzmeniZaposlenog2.Name = "btnIzmeniZaposlenog2";
+            btnIzmeniZaposlenog2.Size = new Size(299, 48);
+            btnIzmeniZaposlenog2.TabIndex = 11;
+            btnIzmeniZaposlenog2.Text = "Izmeni";
+            btnIzmeniZaposlenog2.UseVisualStyleBackColor = false;
+            btnIzmeniZaposlenog2.Click += btnIzmeniZaposlenog2_Click;
             // 
-            // txtCena
+            // btnObrisiZaposlenog
             // 
-            txtCena.Location = new Point(156, 212);
-            txtCena.Name = "txtCena";
-            txtCena.Size = new Size(172, 27);
-            txtCena.TabIndex = 9;
+            btnObrisiZaposlenog.BackColor = SystemColors.ButtonHighlight;
+            btnObrisiZaposlenog.Location = new Point(843, 294);
+            btnObrisiZaposlenog.Name = "btnObrisiZaposlenog";
+            btnObrisiZaposlenog.Size = new Size(94, 44);
+            btnObrisiZaposlenog.TabIndex = 4;
+            btnObrisiZaposlenog.Text = "Obriši";
+            btnObrisiZaposlenog.UseVisualStyleBackColor = false;
+            btnObrisiZaposlenog.Click += btnObrisiZaposlenog_Click;
             // 
-            // btnPretraziDogadjaj
+            // btnNapraviZaposlenog
             // 
-            btnPretraziDogadjaj.BackColor = SystemColors.ButtonHighlight;
-            btnPretraziDogadjaj.Location = new Point(843, 65);
-            btnPretraziDogadjaj.Name = "btnPretraziDogadjaj";
-            btnPretraziDogadjaj.Size = new Size(94, 29);
-            btnPretraziDogadjaj.TabIndex = 2;
-            btnPretraziDogadjaj.Text = "Pretraži";
-            btnPretraziDogadjaj.UseVisualStyleBackColor = false;
+            btnNapraviZaposlenog.BackColor = SystemColors.ButtonHighlight;
+            btnNapraviZaposlenog.Location = new Point(27, 290);
+            btnNapraviZaposlenog.Name = "btnNapraviZaposlenog";
+            btnNapraviZaposlenog.Size = new Size(299, 48);
+            btnNapraviZaposlenog.TabIndex = 10;
+            btnNapraviZaposlenog.Text = "Napravi";
+            btnNapraviZaposlenog.UseVisualStyleBackColor = false;
+            btnNapraviZaposlenog.Click += btnNapraviZaposlenog_Click;
             // 
-            // txtDatum
+            // txtLozinka
             // 
-            txtDatum.Location = new Point(156, 166);
-            txtDatum.Name = "txtDatum";
-            txtDatum.Size = new Size(172, 27);
-            txtDatum.TabIndex = 8;
+            txtLozinka.Location = new Point(156, 212);
+            txtLozinka.Name = "txtLozinka";
+            txtLozinka.Size = new Size(172, 27);
+            txtLozinka.TabIndex = 9;
             // 
-            // label6
+            // btnDodajPoziciju
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(390, 30);
-            label6.Name = "label6";
-            label6.Size = new Size(119, 20);
-            label6.TabIndex = 1;
-            label6.Text = "Pretraži događaj";
+            btnDodajPoziciju.BackColor = SystemColors.ButtonHighlight;
+            btnDodajPoziciju.Location = new Point(839, 102);
+            btnDodajPoziciju.Name = "btnDodajPoziciju";
+            btnDodajPoziciju.Size = new Size(108, 84);
+            btnDodajPoziciju.TabIndex = 2;
+            btnDodajPoziciju.Text = "Dodaj poziciju zaposlenom";
+            btnDodajPoziciju.UseVisualStyleBackColor = false;
+            btnDodajPoziciju.Click += btnDodajPoziciju_Click;
             // 
-            // txtMesto
+            // txtKorIme
             // 
-            txtMesto.Location = new Point(158, 120);
-            txtMesto.Name = "txtMesto";
-            txtMesto.Size = new Size(170, 27);
-            txtMesto.TabIndex = 7;
+            txtKorIme.Location = new Point(156, 166);
+            txtKorIme.Name = "txtKorIme";
+            txtKorIme.Size = new Size(172, 27);
+            txtKorIme.TabIndex = 8;
             // 
-            // dgvDogadjaji
+            // txtPrezime
             // 
-            dgvDogadjaji.BackgroundColor = SystemColors.ButtonHighlight;
-            dgvDogadjaji.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDogadjaji.Location = new Point(390, 116);
-            dgvDogadjaji.Name = "dgvDogadjaji";
-            dgvDogadjaji.RowHeadersWidth = 51;
-            dgvDogadjaji.Size = new Size(416, 282);
-            dgvDogadjaji.TabIndex = 0;
+            txtPrezime.Location = new Point(158, 120);
+            txtPrezime.Name = "txtPrezime";
+            txtPrezime.Size = new Size(170, 27);
+            txtPrezime.TabIndex = 7;
             // 
-            // txtHala
+            // dgvZaposleni
             // 
-            txtHala.Location = new Point(158, 74);
-            txtHala.Name = "txtHala";
-            txtHala.Size = new Size(170, 27);
-            txtHala.TabIndex = 6;
+            dgvZaposleni.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvZaposleni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvZaposleni.Location = new Point(390, 116);
+            dgvZaposleni.Name = "dgvZaposleni";
+            dgvZaposleni.RowHeadersWidth = 51;
+            dgvZaposleni.Size = new Size(416, 282);
+            dgvZaposleni.TabIndex = 0;
             // 
-            // txtIzvodjac
+            // txtIme
             // 
-            txtIzvodjac.Location = new Point(157, 32);
-            txtIzvodjac.Name = "txtIzvodjac";
-            txtIzvodjac.Size = new Size(171, 27);
-            txtIzvodjac.TabIndex = 5;
+            txtIme.Location = new Point(158, 74);
+            txtIme.Name = "txtIme";
+            txtIme.Size = new Size(170, 27);
+            txtIme.TabIndex = 6;
+            // 
+            // txtJMBG
+            // 
+            txtJMBG.Location = new Point(157, 32);
+            txtJMBG.Name = "txtJMBG";
+            txtJMBG.Size = new Size(171, 27);
+            txtJMBG.TabIndex = 5;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(29, 215);
             label5.Name = "label5";
-            label5.Size = new Size(42, 20);
+            label5.Size = new Size(59, 20);
             label5.TabIndex = 4;
-            label5.Text = "Cena";
+            label5.Text = "Lozinka";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(29, 166);
             label4.Name = "label4";
-            label4.Size = new Size(54, 20);
+            label4.Size = new Size(106, 20);
             label4.TabIndex = 3;
-            label4.Text = "Datum";
+            label4.Text = "Korisnicko ime";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(29, 123);
             label3.Name = "label3";
-            label3.Size = new Size(50, 20);
+            label3.Size = new Size(62, 20);
             label3.TabIndex = 2;
-            label3.Text = "Mesto";
+            label3.Text = "Prezime";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(27, 74);
             label2.Name = "label2";
-            label2.Size = new Size(40, 20);
+            label2.Size = new Size(34, 20);
             label2.TabIndex = 1;
-            label2.Text = "Hala";
+            label2.Text = "Ime";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(27, 30);
             label1.Name = "label1";
-            label1.Size = new Size(60, 20);
+            label1.Size = new Size(46, 20);
             label1.TabIndex = 0;
-            label1.Text = "Izvođač";
+            label1.Text = "JMBG";
             // 
             // UCZaposleni
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            Controls.Add(panelDogadjaj);
+            Controls.Add(panelZaposleni);
             Name = "UCZaposleni";
             Size = new Size(964, 430);
-            panelDogadjaj.ResumeLayout(false);
-            panelDogadjaj.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDogadjaji).EndInit();
+            panelZaposleni.ResumeLayout(false);
+            panelZaposleni.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvZaposleni).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panelDogadjaj;
-        private Button btnPromeniDogadjaj;
-        private Button btnIzmeniDogadjaj2;
-        private Button btnObrisiDogadjaj;
-        private Button btnNapraviDogadjaj;
-        private TextBox txtPretraziDogađaj;
-        private TextBox txtCena;
-        private Button btnPretraziDogadjaj;
-        private TextBox txtDatum;
-        private Label label6;
-        private TextBox txtMesto;
-        private DataGridView dgvDogadjaji;
-        private TextBox txtHala;
-        private TextBox txtIzvodjac;
+        private Panel panelZaposleni;
+        private Button btnPromeniZaposlenog;
+        private Button btnIzmeniZaposlenog2;
+        private Button btnObrisiZaposlenog;
+        private Button btnNapraviZaposlenog;
+        private TextBox txtLozinka;
+        private Button btnDodajPoziciju;
+        private TextBox txtKorIme;
+        private TextBox txtPrezime;
+        private DataGridView dgvZaposleni;
+        private TextBox txtIme;
+        private TextBox txtJMBG;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
+        private ComboBox comboBoxPozicije;
+        private DateTimePicker dateTimeKraj;
+        private DateTimePicker dateTimePocetak;
     }
 }

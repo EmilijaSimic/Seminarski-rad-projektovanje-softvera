@@ -12,8 +12,24 @@ namespace Server.SistemskeOperacije.SOZaposleni
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
             Zaposleni zaposleni = (Zaposleni)odo;
-            return bbp.Kreiraj(zaposleni);
-            
+
+            if (!bbp.Kreiraj(zaposleni))
+            {
+                MessageBox.Show("Uslo1");
+                return false;
+            }
+
+            foreach (PozicijaZaposlenog pz in zaposleni.Pozicije)
+            {
+                pz.Zaposleni.Id = zaposleni.Id;
+                if (!bbp.KreirajZavisneObjekte(pz))
+                {
+                    MessageBox.Show("Uslo2");
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public override bool proveriOgranicenja(OpstiDomenskiObjekat odo)
@@ -22,11 +38,12 @@ namespace Server.SistemskeOperacije.SOZaposleni
             {
                 if (zaposleni.KorisnickoIme != null && zaposleni.Lozinka != null  && zaposleni.Jmbg!=null && zaposleni.Ime != null && zaposleni.Prezime!=null &&
                     zaposleni.KorisnickoIme!="" && zaposleni.Lozinka != "" && zaposleni.Ime != "" && zaposleni.Prezime != "" &&
-                    zaposleni.Jmbg.Length != 13 && zaposleni.Ime[0] == zaposleni.Ime.ToUpper()[0] && zaposleni.Prezime[0] == zaposleni.Prezime.ToUpper()[0])
+                    zaposleni.Jmbg.Length == 13 && zaposleni.Ime[0] == zaposleni.Ime.ToUpper()[0] && zaposleni.Prezime[0] == zaposleni.Prezime.ToUpper()[0])
                 {
                     return true;
                 }
             }
+
             return false;
         }
     }

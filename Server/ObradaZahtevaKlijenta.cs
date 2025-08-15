@@ -76,37 +76,17 @@ namespace Server
                 break;
                 case (Operacija.KREIRAJ_DOGADJAJ):
                     Dogadjaj dogadjajNovi = JsonSerializer.Deserialize<Dogadjaj>(((JsonElement)zahtev.Podaci).GetRawText());
-                    if (kontroler.KreirajDogadjaj(dogadjajNovi))
-                    {
-                        odgovor.Uspesno = true;
-                    }
-                    else {
-                        odgovor.Uspesno = false;
-                    }
+                    odgovor.Uspesno = kontroler.KreirajDogadjaj(dogadjajNovi);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
                 case (Operacija.OBRISI_DOGADJAJ):
                     Dogadjaj dogadjajObr = JsonSerializer.Deserialize<Dogadjaj>(((JsonElement)zahtev.Podaci).GetRawText());
-                    if (kontroler.ObrisiDogadjaj(dogadjajObr))
-                    {
-                        odgovor.Uspesno = true;
-                    }
-                    else
-                    {
-                        odgovor.Uspesno = false;
-                    }
+                    odgovor.Uspesno = kontroler.ObrisiDogadjaj(dogadjajObr);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
                 case (Operacija.PROMENI_DOGADJAJ):
                     Dogadjaj dogadjajPr = JsonSerializer.Deserialize<Dogadjaj>(((JsonElement)zahtev.Podaci).GetRawText());
-                    if (kontroler.PromeniDogadjaj(dogadjajPr))
-                    {
-                        odgovor.Uspesno = true;
-                    }
-                    else
-                    {
-                        odgovor.Uspesno = false;
-                    }
+                    odgovor.Uspesno = kontroler.PromeniDogadjaj(dogadjajPr);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
                 case (Operacija.PRETRAZI_DOGADJAJ):
@@ -122,38 +102,17 @@ namespace Server
                 break;
                 case (Operacija.KREIRAJ_KUPCA):
                     Kupac kupacNovi = JsonSerializer.Deserialize<Kupac>(((JsonElement)zahtev.Podaci).GetRawText());
-                    if (kontroler.KreirajKupca(kupacNovi))
-                    {
-                        odgovor.Uspesno = true;
-                    }
-                    else
-                    {
-                        odgovor.Uspesno = false;
-                    }
+                    odgovor.Uspesno = kontroler.KreirajKupca(kupacNovi);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
                 case (Operacija.OBRISI_KUPCA):
                     Kupac kupacObr = JsonSerializer.Deserialize<Kupac>(((JsonElement)zahtev.Podaci).GetRawText());
-                    if (kontroler.ObrisiKupca(kupacObr))
-                    {
-                        odgovor.Uspesno = true;
-                    }
-                    else
-                    {
-                        odgovor.Uspesno = false;
-                    }
+                    odgovor.Uspesno = kontroler.ObrisiKupca(kupacObr);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
                 case (Operacija.PROMENI_KUPCA):
                     Kupac kupacPr = JsonSerializer.Deserialize<Kupac>(((JsonElement)zahtev.Podaci).GetRawText());
-                    if (kontroler.PromeniKupca(kupacPr))
-                    {
-                        odgovor.Uspesno = true;
-                    }
-                    else
-                    {
-                        odgovor.Uspesno = false;
-                    }
+                    odgovor.Uspesno = kontroler.PromeniKupca(kupacPr);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
                 case (Operacija.PRETRAZI_KUPCA):
@@ -165,6 +124,21 @@ namespace Server
                 case (Operacija.VRATI_LISTU_KUPACA):
                     odgovor.Uspesno = true;
                     odgovor.Podaci = kontroler.VratiListuKupaca();
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.VRATI_LISTU_ZAPOSLENIH):
+                    odgovor.Uspesno = true;
+                    odgovor.Podaci = kontroler.VratiListuZaposlenih(null);
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                    case (Operacija.VRATI_LISTU_POZICIJA):
+                    odgovor.Uspesno = true;
+                    odgovor.Podaci = kontroler.VratiListuPozicija();
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.KREIRAJ_ZAPOSLENOG):
+                    Zaposleni zaposleniNovi = JsonSerializer.Deserialize<Zaposleni>(((JsonElement)zahtev.Podaci).GetRawText());
+                    odgovor.Uspesno = kontroler.KreirajZaposlenog(zaposleniNovi);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
             }

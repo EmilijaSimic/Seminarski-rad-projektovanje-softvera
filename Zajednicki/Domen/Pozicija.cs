@@ -63,5 +63,10 @@ namespace Zajednicki.Domen
             return $"naziv = '{Naziv}'";
         }
 
+        public override string ToString()
+        {
+            return Naziv;
+        }
+
     }
 }

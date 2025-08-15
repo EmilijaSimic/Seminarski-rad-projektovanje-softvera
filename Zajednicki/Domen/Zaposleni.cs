@@ -18,7 +18,7 @@ namespace Zajednicki.Domen
         public List<PozicijaZaposlenog> Pozicije {  get; set; }
 
         public Zaposleni() { }
-        public Zaposleni(int id, string jmbg, string ime, string prezime, string korisnickoIme, string lozinka)
+        public Zaposleni(int id, string jmbg, string ime, string prezime, string korisnickoIme, string lozinka, List<PozicijaZaposlenog> pozicije)
         {
             Id = id;
             Jmbg = jmbg;
@@ -26,6 +26,7 @@ namespace Zajednicki.Domen
             Prezime = prezime;
             KorisnickoIme = korisnickoIme;
             Lozinka = lozinka;
+            Pozicije = pozicije;
         }
 
         public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)

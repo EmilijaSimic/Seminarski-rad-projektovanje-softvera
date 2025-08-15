@@ -100,7 +100,7 @@ namespace BazaPodataka
                 SqlCommand cmd = new SqlCommand(upit, connection);
                 cmd.Transaction = transaction;
                 int id = (int)cmd.ExecuteScalar();
-                //proveri ovo ispod OBAVEZNO
+
                 var tip = odo.GetType();
                 var prop = tip.GetProperty("Id");
                 if (prop != null && prop.CanWrite)
@@ -248,6 +248,23 @@ namespace BazaPodataka
                 ulaz?.Close();
             }
             return objekti;
+        }
+        public bool KreirajZavisneObjekte(OpstiDomenskiObjekat odo)
+        {
+            string upit = "INSERT INTO " + odo.VratiNazivTabele() + " (" + odo.VratiNaziveKolona() + ") VALUES (" + odo.VratiVrednostiKolona() + ")";
+            Debug.WriteLine(upit);
+            try
+            {
+                SqlCommand cmd = new SqlCommand(upit, connection);
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                Debug.WriteLine(">>> Greska u kreiraj zavisne objekte: " + ex.Message);
+                return false;
+            }
+            return true;
         }
     }
 }
