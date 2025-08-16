@@ -60,11 +60,6 @@ namespace Klijent.UserControler
             }
         }
 
-        private void btnIzmeniZaposlenog2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDodajPoziciju_Click(object sender, EventArgs e)
         {
             pozicije.Add(new PozicijaZaposlenog(new Zaposleni(), (Pozicija)comboBoxPozicije.SelectedItem, dateTimePocetak.Value, dateTimeKraj.Value));
@@ -75,12 +70,59 @@ namespace Klijent.UserControler
 
         private void btnObrisiZaposlenog_Click(object sender, EventArgs e)
         {
-
+            if (dgvZaposleni.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    Zaposleni selektovani = (Zaposleni)dgvZaposleni.SelectedRows[0].DataBoundItem;
+                    Odgovor odg = KontrolerKIZaposleni.Instanca.ObrisiZaposlenog(selektovani);
+                    Odgovor odgovor = KontrolerKIZaposleni.Instanca.VratiListuZaposlenih();
+                    if (odgovor.Uspesno)
+                    {
+                        dgvZaposleni.DataSource = (List<Zaposleni>)odgovor.Podaci;
+                    }
+                }
+                catch (InvalidCastException) {
+                    MessageBox.Show("Morate selektovati zaposlenog");
+                    return;
+                }
+            }
         }
 
         private void btnPromeniZaposlenog_Click(object sender, EventArgs e)
         {
-            btnDodajPoziciju.Visible = false;
+            //btnDodajPoziciju.Visible = false;
+            if (dgvZaposleni.SelectedRows.Count > 0)
+            {
+                btnNapraviZaposlenog.Visible = false;
+                btnIzmeniZaposlenog2.Visible = true;
+
+                try
+                {
+                    Zaposleni selektovani = (Zaposleni)dgvZaposleni.SelectedRows[0].DataBoundItem;
+                    txtIme.Text = selektovani.Ime;
+                    txtPrezime.Text = selektovani.Prezime;
+                    txtJMBG.Text = selektovani.Jmbg;
+                    txtKorIme.Text = selektovani.KorisnickoIme;
+                    txtLozinka.Text = selektovani.Lozinka;
+                    Odgovor odgovor = KontrolerKIZaposleni.Instanca.VratiListuZaposlenih();
+                    if (odgovor.Uspesno)
+                    {
+                        dgvZaposleni.DataSource = (List<Zaposleni>)odgovor.Podaci;
+                    }
+
+                    //btnIzmeniKupca2.Visible = true;
+                    //btnNapraviKupca.Visible = false;
+                }
+                catch (InvalidCastException)
+                {
+                    MessageBox.Show("Morate selektovati zaposlenog");
+                }
+            }
+        }
+
+        private void btnIzmeniZaposlenog2_Click(object sender, EventArgs e)
+        {
 
         }
 

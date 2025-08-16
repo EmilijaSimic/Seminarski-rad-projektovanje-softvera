@@ -12,9 +12,12 @@ namespace Klijent.UserControler
 {
     public partial class UCPotvrda : UserControl
     {
-        public UCPotvrda()
+        public UCPotvrda(bool bol)
         {
             InitializeComponent();
+            panelSkriveni.Visible = bol;
+            //comboboksevi
+            //ResetForme();
         }
     }
 }

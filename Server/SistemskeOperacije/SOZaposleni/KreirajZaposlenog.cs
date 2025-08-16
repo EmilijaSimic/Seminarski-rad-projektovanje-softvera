@@ -24,7 +24,6 @@ namespace Server.SistemskeOperacije.SOZaposleni
                 pz.Zaposleni.Id = zaposleni.Id;
                 if (!bbp.KreirajZavisneObjekte(pz))
                 {
-                    MessageBox.Show("Uslo2");
                     return false;
                 }
             }
