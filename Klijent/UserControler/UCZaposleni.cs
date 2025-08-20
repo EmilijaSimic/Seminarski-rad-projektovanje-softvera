@@ -16,6 +16,7 @@ namespace Klijent.UserControler
     public partial class UCZaposleni : UserControl
     {
         List<PozicijaZaposlenog> pozicije = new List<PozicijaZaposlenog>();
+        Zaposleni selektovani;
         public UCZaposleni()
         {
             InitializeComponent();
@@ -25,6 +26,8 @@ namespace Klijent.UserControler
             if (odgovor.Uspesno)
             {
                 dgvZaposleni.DataSource = (List<Zaposleni>)odgovor.Podaci;
+                List<Zaposleni> z = (List<Zaposleni>)odgovor.Podaci;
+                //MessageBox.Show("" + z[1].Pozicije[1].Pozicija.Id);
             }
             odgovor = KontrolerKIPozicija.Instanca.VratiListuPozicija();
             if (odgovor.Uspesno)
@@ -58,6 +61,7 @@ namespace Klijent.UserControler
             {
                 dgvZaposleni.DataSource = (List<Zaposleni>)odg.Podaci;
             }
+            pozicije = new List<PozicijaZaposlenog>();
         }
 
         private void btnDodajPoziciju_Click(object sender, EventArgs e)
@@ -100,19 +104,34 @@ namespace Klijent.UserControler
                 try
                 {
                     Zaposleni selektovani = (Zaposleni)dgvZaposleni.SelectedRows[0].DataBoundItem;
+                    this.selektovani = selektovani;
                     txtIme.Text = selektovani.Ime;
+                    txtIme.Enabled = false;
                     txtPrezime.Text = selektovani.Prezime;
+                    txtPrezime.Enabled = false;
                     txtJMBG.Text = selektovani.Jmbg;
+                    txtJMBG.Enabled = false;
                     txtKorIme.Text = selektovani.KorisnickoIme;
+                    txtKorIme.Enabled = false;
                     txtLozinka.Text = selektovani.Lozinka;
-                    Odgovor odgovor = KontrolerKIZaposleni.Instanca.VratiListuZaposlenih();
+                    txtLozinka.Enabled = false;
+
+                    Odgovor odgovor = KontrolerKIPozicija.Instanca.VratiListuPozicija();
                     if (odgovor.Uspesno)
                     {
-                        dgvZaposleni.DataSource = (List<Zaposleni>)odgovor.Podaci;
+                        List<Pozicija> poz = (List<Pozicija>)odgovor.Podaci;
+                        foreach (PozicijaZaposlenog pz in selektovani.Pozicije)
+                        {
+                            var punaPozicija = poz.FirstOrDefault(p => p.Id == pz.Pozicija.Id);
+                            if (punaPozicija != null)
+                            {
+                                pz.Pozicija = punaPozicija;
+                            }
+                        }
                     }
-
-                    //btnIzmeniKupca2.Visible = true;
-                    //btnNapraviKupca.Visible = false;
+                        dgvZaposleni.DataSource = null;
+                        dgvZaposleni.DataSource = selektovani.Pozicije;
+                        dgvZaposleni.Columns["Zaposleni"].Visible = false;
                 }
                 catch (InvalidCastException)
                 {
@@ -123,7 +142,19 @@ namespace Klijent.UserControler
 
         private void btnIzmeniZaposlenog2_Click(object sender, EventArgs e)
         {
-
+             selektovani.Pozicije = pozicije;
+             Odgovor odgovor = KontrolerKIZaposleni.Instanca.PromeniZaposlenog(selektovani);
+             
+             if (odgovor.Uspesno)
+             {
+                MessageBox.Show("Uspesno izmenjen zaposleni!");
+             }
+             else
+             {
+                MessageBox.Show("Menjanje objekta nije uspelo");
+             }
+            
+            pozicije = new List<PozicijaZaposlenog>();
         }
 
         private bool Validacija(string ime, string prezime, string jmbg, string korIme, string lozinka)

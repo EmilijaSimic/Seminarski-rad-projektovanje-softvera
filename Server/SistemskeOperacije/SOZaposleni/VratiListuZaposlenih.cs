@@ -18,9 +18,13 @@ namespace Server.SistemskeOperacije.SOZaposleni
 
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
-            if (Filter != null)
+            if (Filter == null)
             {
                 Rezultat = bbp.VratiListuSvih(new Zaposleni());
+                foreach(Zaposleni z in Rezultat)
+                {
+                    z.Pozicije = bbp.Pretrazi(new PozicijaZaposlenog(), z.Id.ToString()).Cast<PozicijaZaposlenog>().ToList(); ;
+                }
             }
             else
             {

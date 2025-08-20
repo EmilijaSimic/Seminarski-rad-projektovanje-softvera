@@ -30,7 +30,15 @@ namespace Zajednicki.Domen
 
         public OpstiDomenskiObjekat ProcitajRed(SqlDataReader ulaz)
         {
-            throw new NotImplementedException();
+            PozicijaZaposlenog k = new PozicijaZaposlenog();
+            k.Zaposleni = new Zaposleni();
+            k.Pozicija = new Pozicija();
+            k.Pozicija.Id = (int)ulaz[0];
+            k.Zaposleni.Id = (int)ulaz[1];
+            k.DatumPocetka = (DateTime)ulaz[2];
+            k.DatumZavrsetka = (DateTime)ulaz[3];
+
+            return k;
         }
 
         public string Uslov()
@@ -40,7 +48,7 @@ namespace Zajednicki.Domen
 
         public string UslovZaPretragu(string filter)
         {
-            throw new NotImplementedException();
+            return "idZaposleni = " + filter;
         }
 
         public string VratiNaziveKolona()
@@ -63,5 +71,9 @@ namespace Zajednicki.Domen
             return $"idZaposleni = {Zaposleni.Id}, idPozicija = {Pozicija.Id}, datumPocetka = '{DatumPocetka:yyyy-MM-dd HH:mm:ss}', datumZavrsetka = '{DatumZavrsetka:yyyy-MM-dd HH:mm:ss}'";
         }
 
+        public override string ToString()
+        {
+            return Pozicija.Id.ToString();
+        }
     }
 }

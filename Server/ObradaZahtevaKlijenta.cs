@@ -146,6 +146,11 @@ namespace Server
                     odgovor.Uspesno = kontroler.ObrisiZaposlenog(zaposleniObr);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
+                case (Operacija.PROMENI_ZAPOSLENOG):
+                    Zaposleni zaposleniPr = JsonSerializer.Deserialize<Zaposleni>(((JsonElement)zahtev.Podaci).GetRawText());
+                    odgovor.Uspesno = kontroler.PromeniZaposlenog(zaposleniPr);
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
             }
         }
 
