@@ -47,12 +47,12 @@ namespace Zajednicki.Domen
             p.IznosUkupno = (double)ulaz[4];
 
             Zaposleni z = new Zaposleni();
-            z.Id = (int)ulaz[15];
-            z.Jmbg = ulaz[16].ToString();
-            z.Ime = ulaz[17].ToString();
-            z.Prezime = ulaz[18].ToString();
-            z.KorisnickoIme = ulaz[19].ToString();
-            z.Lozinka = ulaz[20].ToString();
+            z.Id = (int)ulaz[14];
+            z.Jmbg = ulaz[15].ToString();
+            z.Ime = ulaz[16].ToString();
+            z.Prezime = ulaz[17].ToString();
+            z.KorisnickoIme = ulaz[18].ToString();
+            z.Lozinka = ulaz[19].ToString();
             p.Zaposleni = z;
 
             Kupac k = new Kupac();

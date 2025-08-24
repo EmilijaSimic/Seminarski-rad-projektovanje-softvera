@@ -65,7 +65,7 @@ namespace Zajednicki.Domen
 
         public string VratiNaziveKolona()
         {
-            return "idPotvrda, kolicina, cena, iznos, idDogadjaj";
+            return "rb, idPotvrda, kolicina, cena, iznos, idDogadjaj";
         }
 
         public string VratiNazivTabele()
@@ -75,7 +75,7 @@ namespace Zajednicki.Domen
 
         public string VratiVrednostiKolona()
         {
-            return $"{Potvrda.Id}, {Kolicina}, {Cena.ToString(System.Globalization.CultureInfo.InvariantCulture)}, {Iznos.ToString(System.Globalization.CultureInfo.InvariantCulture)}, {Dogadjaj.Id}";
+            return $"{Rb}, {Potvrda.Id}, {Kolicina}, {Cena.ToString(System.Globalization.CultureInfo.InvariantCulture)}, {Iznos.ToString(System.Globalization.CultureInfo.InvariantCulture)}, {Dogadjaj.Id}";
         }
 
         public string VratiVrednostiZaPromenu()

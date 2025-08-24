@@ -82,5 +82,10 @@ namespace Zajednicki.Domen
             return $"ime = '{Ime}', prezime = '{Prezime}', telefon = '{Telefon}', brojPlatneKartice = '{BrojPlatneKartice}', aktivan = {(Aktivan ? 1 : 0)}, idTipKupca = {TipKupca.Id}";
         }
 
+        public override string ToString()
+        {
+            return Ime + Prezime;
+        }
+
     }
 }

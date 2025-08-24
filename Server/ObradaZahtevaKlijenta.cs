@@ -151,6 +151,11 @@ namespace Server
                     odgovor.Uspesno = kontroler.PromeniZaposlenog(zaposleniPr);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
+                case (Operacija.KREIRAJ_POTVRDU):
+                    Potvrda potvrdaNova = JsonSerializer.Deserialize<Potvrda>(((JsonElement)zahtev.Podaci).GetRawText());
+                    odgovor.Uspesno = kontroler.KreirajPotvrdu(potvrdaNova);
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
             }
         }
 

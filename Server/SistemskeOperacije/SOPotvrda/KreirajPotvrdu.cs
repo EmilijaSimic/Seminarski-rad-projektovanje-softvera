@@ -13,6 +13,16 @@ namespace Server.SistemskeOperacije.SOPotvrda
         {
             Potvrda potvrda = (Potvrda)odo;
 
+            VratiListuPotvrda so = new VratiListuPotvrda();
+            so.OpsteIzvrsiSO(potvrda);
+            List<Potvrda> potvrde = so.Rezultat.Cast<Potvrda>().ToList(); ;
+
+            foreach (Potvrda p in potvrde) {
+                if (p.Kupac.Id == potvrda.Kupac.Id && p.Zaposleni.Id==potvrda.Zaposleni.Id) {
+                    return false;
+                }
+            }
+
             potvrda.Cena = 0;
             foreach (StavkaPotvrde stavka in potvrda.Stavke)
             {
@@ -22,18 +32,20 @@ namespace Server.SistemskeOperacije.SOPotvrda
             }
 
             potvrda.Popust = potvrda.Kupac.TipKupca.Popust;
-            potvrda.IznosUkupno = (1 - potvrda.Popust) * potvrda.Cena;
+            potvrda.IznosUkupno = ((100 - potvrda.Popust)/100) * potvrda.Cena;
 
             if (!bbp.Kreiraj(potvrda))
             {
+                MessageBox.Show("kr");
                 return false;
             }
 
             foreach (StavkaPotvrde stavka in potvrda.Stavke)
             {
-                stavka.Potvrda.Id = potvrda.Id; 
+                stavka.Potvrda.Id = potvrda.Id;
                 if (!bbp.KreirajZavisneObjekte(stavka))
                 {
+                    MessageBox.Show(""+stavka.Iznos+"k"+stavka.Kolicina+"k"+stavka.Potvrda.Id+"l"+stavka.Cena+"j"+stavka.Dogadjaj.Id);
                     return false;
                 }
             }
@@ -46,12 +58,13 @@ namespace Server.SistemskeOperacije.SOPotvrda
             if(odo is Potvrda potvrda)
             {
                 if (potvrda.Stavke != null && potvrda.Kupac != null && potvrda.Zaposleni != null) { 
-                    if(potvrda.Datum != null && potvrda.Stavke.Count > 1 )
+                    if(potvrda.Datum != null && potvrda.Stavke.Count >= 1 )
                     {
                         return true;
                     }
                 }
             }
+            MessageBox.Show("nije dobra pot");
             return false;
         }
     }

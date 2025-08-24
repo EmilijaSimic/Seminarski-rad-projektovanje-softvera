@@ -53,12 +53,12 @@ namespace Klijent.Forma
 
         private void novaPotvrdaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrikaziKontrolu(new UCPotvrda(false));
+            PrikaziKontrolu(new UCPotvrda());
         }
 
         private void svePotvrdeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrikaziKontrolu(new UCPotvrda(true));
+            PrikaziKontrolu(new UCPotvrda());
         }
 
         private void PrikaziKontrolu(UserControl kontrola)
