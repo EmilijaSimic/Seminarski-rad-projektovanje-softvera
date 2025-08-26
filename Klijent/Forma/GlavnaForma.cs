@@ -58,7 +58,7 @@ namespace Klijent.Forma
 
         private void svePotvrdeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrikaziKontrolu(new UCPotvrda());
+            PrikaziKontrolu(new UCIzmenaPotvrde());
         }
 
         private void PrikaziKontrolu(UserControl kontrola)

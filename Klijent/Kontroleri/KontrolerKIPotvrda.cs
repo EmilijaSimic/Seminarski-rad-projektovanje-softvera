@@ -78,5 +78,26 @@ namespace Klijent.Kontroleri
             }
             return null;
         }
+
+        public Odgovor PretraziPotvrdu(Potvrda potvrda)
+        {
+            try
+            {
+                Zahtev zahtev = new Zahtev();
+                zahtev.Operacija = Operacija.PRETRAZI_POTVRDU;
+                zahtev.Podaci = potvrda;
+                PosaljiZahtev(zahtev);
+                Odgovor odgovor = PrimiOdgovor();
+                odgovor.Podaci = odgovor.Podaci is JsonElement element && element.ValueKind != JsonValueKind.Null
+                    ? JsonSerializer.Deserialize<Potvrda>(element.GetRawText())
+                    : null;
+                return odgovor;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(">>>> Greska u pretrazi potvrde: " + ex.Message);
+            }
+            return null;
+        }
     }
 }

@@ -156,6 +156,17 @@ namespace Server
                     odgovor.Uspesno = kontroler.KreirajPotvrdu(potvrdaNova);
                     posiljalac.PosaljiOdgovorKlijentu(odgovor);
                 break;
+                case (Operacija.PROMENI_POTVRDU):
+                    Potvrda potvrdaPr = JsonSerializer.Deserialize<Potvrda>(((JsonElement)zahtev.Podaci).GetRawText());
+                    odgovor.Uspesno = kontroler.PromeniPotvrdu(potvrdaPr);
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
+                case (Operacija.PRETRAZI_POTVRDU):
+                    Potvrda filterPot = JsonSerializer.Deserialize<Potvrda>(((JsonElement)zahtev.Podaci).GetRawText());
+                    odgovor.Podaci = kontroler.PretraziPotvrdu(filterPot);
+                    odgovor.Uspesno = odgovor.Podaci != null;
+                    posiljalac.PosaljiOdgovorKlijentu(odgovor);
+                break;
             }
         }
 

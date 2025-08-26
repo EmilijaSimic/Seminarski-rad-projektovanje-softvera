@@ -79,7 +79,7 @@ namespace Zajednicki.Domen
 
         public override string ToString()
         {
-            return Ime + Prezime;
+            return Ime + " " + Prezime;
         }
     }
 }

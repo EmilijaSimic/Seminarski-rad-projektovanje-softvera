@@ -108,6 +108,13 @@ namespace Server
             so.OpsteIzvrsiSO(new Potvrda());
             return so.Rezultat.Cast<Potvrda>().ToList();    
         }
+
+        public Potvrda PretraziPotvrdu(Potvrda filter)
+        {
+            PretraziPotvrdu so = new PretraziPotvrdu();
+            so.izvrsiSO(filter);
+            return so.Rezultat;
+        }
         public bool PromeniPoziciju(Pozicija pozicija)
         {
             PromeniPoziciju so = new PromeniPoziciju();
@@ -118,12 +125,6 @@ namespace Server
             VratiListuPozicija so = new VratiListuPozicija();
             so.OpsteIzvrsiSO(new Pozicija());
             return so.Rezultat.Cast<Pozicija>().ToList();
-        }
-        public List<StavkaPotvrde> VratiListuStavkiPotvrde(string filter)
-        {
-            VratiListuStavkiPotvrde so = new VratiListuStavkiPotvrde(filter);
-            so.OpsteIzvrsiSO(new StavkaPotvrde());
-            return so.Rezultat.Cast<StavkaPotvrde>().ToList();
         }
         public bool PromeniTipKupca(TipKupca tipKupca)
         {

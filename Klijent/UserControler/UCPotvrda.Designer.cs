@@ -93,7 +93,7 @@
             comboBoxZaposleni.FormattingEnabled = true;
             comboBoxZaposleni.Location = new Point(580, 184);
             comboBoxZaposleni.Name = "comboBoxZaposleni";
-            comboBoxZaposleni.Size = new Size(151, 28);
+            comboBoxZaposleni.Size = new Size(193, 28);
             comboBoxZaposleni.TabIndex = 33;
             // 
             // comboBoxKupac
@@ -101,7 +101,7 @@
             comboBoxKupac.FormattingEnabled = true;
             comboBoxKupac.Location = new Point(580, 133);
             comboBoxKupac.Name = "comboBoxKupac";
-            comboBoxKupac.Size = new Size(151, 28);
+            comboBoxKupac.Size = new Size(193, 28);
             comboBoxKupac.TabIndex = 32;
             // 
             // btnDodajStavkuPotvrde
@@ -129,7 +129,7 @@
             comboBoxDogadjaj.FormattingEnabled = true;
             comboBoxDogadjaj.Location = new Point(580, 316);
             comboBoxDogadjaj.Name = "comboBoxDogadjaj";
-            comboBoxDogadjaj.Size = new Size(151, 28);
+            comboBoxDogadjaj.Size = new Size(193, 28);
             comboBoxDogadjaj.TabIndex = 23;
             // 
             // label10
@@ -145,7 +145,7 @@
             // 
             txtKolicina.Location = new Point(577, 260);
             txtKolicina.Name = "txtKolicina";
-            txtKolicina.Size = new Size(151, 27);
+            txtKolicina.Size = new Size(196, 27);
             txtKolicina.TabIndex = 20;
             // 
             // btnPretraziKupca

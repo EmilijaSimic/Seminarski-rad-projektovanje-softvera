@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.SistemskeOperacije.SOStavkaPotvrde;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,28 +12,54 @@ namespace Server.SistemskeOperacije.SOPotvrda
     {
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)
         {
+
             Potvrda potvrda = (Potvrda)odo;
 
             potvrda.Cena = 0;
             foreach (StavkaPotvrde stavka in potvrda.Stavke)
             {
+                stavka.Cena = stavka.Dogadjaj.Cena;
+                stavka.Iznos = stavka.Kolicina * stavka.Cena;
                 potvrda.Cena += stavka.Iznos;
             }
 
-            potvrda.Popust = potvrda.Kupac.TipKupca.Popust;
-            potvrda.IznosUkupno = (1 - potvrda.Popust) * potvrda.Cena;
+            potvrda.IznosUkupno = ((100 - potvrda.Popust) / 100) * potvrda.Cena;
 
             if (!bbp.Promeni(potvrda))
             {
                 return false;
             }
 
-            foreach (StavkaPotvrde stavka in potvrda.Stavke)
+            VratiListuStavkiPotvrde so = new VratiListuStavkiPotvrde(potvrda.Id.ToString());
+            so.OpsteIzvrsiSO(potvrda);
+            List<StavkaPotvrde> stareStavke = so.Rezultat.Cast<StavkaPotvrde>().ToList();
+
+            foreach (StavkaPotvrde stara in stareStavke)
             {
-                stavka.Potvrda.Id = potvrda.Id;
-                if (!bbp.Promeni(stavka))
+                if (!potvrda.Stavke.Any(s => s.Rb == stara.Rb))
                 {
-                    return false;
+                    stara.Potvrda = new Potvrda();
+                    stara.Potvrda.Id = potvrda.Id;
+                    if (!bbp.Obrisi(stara))
+                    {
+                        return false;
+                    }
+                }
+            }
+            int rb = potvrda.Stavke.Max(s => s.Rb)+1;
+            foreach (StavkaPotvrde nova in potvrda.Stavke)
+            {
+                nova.Potvrda= new Potvrda();
+                nova.Potvrda.Id = potvrda.Id;
+
+                if (nova.Rb == 0)
+                {
+                    nova.Rb = rb;
+                    rb++;
+                    if (!bbp.KreirajZavisneObjekte(nova))
+                    {
+                        return false;
+                    }
                 }
             }
 
@@ -45,7 +72,7 @@ namespace Server.SistemskeOperacije.SOPotvrda
             {
                 if (potvrda.Stavke != null && potvrda.Kupac != null && potvrda.Zaposleni != null)
                 {
-                    if (potvrda.Datum != null && potvrda.Stavke.Count > 1)
+                    if (potvrda.Datum != null && potvrda.Stavke.Count >= 1)
                     {
                         return true;
                     }

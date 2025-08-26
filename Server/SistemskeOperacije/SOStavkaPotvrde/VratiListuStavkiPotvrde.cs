@@ -9,10 +9,11 @@ namespace Server.SistemskeOperacije.SOStavkaPotvrde
 {
     internal class VratiListuStavkiPotvrde : OpsteIzvrsenjeSO
     {
+        string Filter;
         public List<OpstiDomenskiObjekat> Rezultat {  get; set; }
-        public string Filter {  get; set; }
 
-        public VratiListuStavkiPotvrde(string filter) {
+        public VratiListuStavkiPotvrde(string filter)
+        {
             Filter = filter;
         }
         public override bool izvrsiSO(OpstiDomenskiObjekat odo)

@@ -36,7 +36,6 @@ namespace Server.SistemskeOperacije.SOPotvrda
 
             if (!bbp.Kreiraj(potvrda))
             {
-                MessageBox.Show("kr");
                 return false;
             }
 
@@ -45,7 +44,6 @@ namespace Server.SistemskeOperacije.SOPotvrda
                 stavka.Potvrda.Id = potvrda.Id;
                 if (!bbp.KreirajZavisneObjekte(stavka))
                 {
-                    MessageBox.Show(""+stavka.Iznos+"k"+stavka.Kolicina+"k"+stavka.Potvrda.Id+"l"+stavka.Cena+"j"+stavka.Dogadjaj.Id);
                     return false;
                 }
             }
@@ -64,7 +62,6 @@ namespace Server.SistemskeOperacije.SOPotvrda
                     }
                 }
             }
-            MessageBox.Show("nije dobra pot");
             return false;
         }
     }

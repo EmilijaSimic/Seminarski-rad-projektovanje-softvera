@@ -41,7 +41,7 @@ namespace Zajednicki.Domen
             sp.Iznos = (double)ulaz["iznos"];
 
             Dogadjaj d = new Dogadjaj();
-            d.Id = (int)ulaz["id"]; 
+            d.Id = (int)ulaz["idDogadjaj"]; 
             d.Izvodjac = ulaz["izvodjac"].ToString();
             d.Hala = ulaz["hala"].ToString();
             d.Mesto = ulaz["mesto"].ToString();
@@ -54,7 +54,7 @@ namespace Zajednicki.Domen
 
         public string Uslov()
         {
-            return $"id = {Rb}";
+            return $"rb = {Rb} AND idPotvrda = {Potvrda.Id}";
         }
 
         public string UslovZaPretragu(string filter)

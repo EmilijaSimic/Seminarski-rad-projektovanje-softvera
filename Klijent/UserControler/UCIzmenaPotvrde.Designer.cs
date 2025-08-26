@@ -33,8 +33,8 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            btnObrisiStavkuPotvrde = new Button();
             label4 = new Label();
+            btnObrisiStavkuPotvrde = new Button();
             txtDatum = new TextBox();
             txtCena = new TextBox();
             txtIznosUkupno = new TextBox();
@@ -45,12 +45,12 @@
             btnPretraziPotvrdu = new Button();
             comboBoxZaposleni = new ComboBox();
             comboBoxKupac = new ComboBox();
-            button1 = new Button();
+            btnDodajStavkuPotvrde = new Button();
             label11 = new Label();
             comboBoxDogadjaj = new ComboBox();
             label10 = new Label();
             txtKolicina = new TextBox();
-            button2 = new Button();
+            btnPotvrdiIzmenu = new Button();
             panelSkriveni.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPotvrda).BeginInit();
             SuspendLayout();
@@ -106,6 +106,15 @@
             label3.TabIndex = 2;
             label3.Text = "Popust";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(22, 147);
+            label4.Name = "label4";
+            label4.Size = new Size(96, 20);
+            label4.TabIndex = 3;
+            label4.Text = "Iznos ukupno";
+            // 
             // btnObrisiStavkuPotvrde
             // 
             btnObrisiStavkuPotvrde.BackColor = SystemColors.ButtonHighlight;
@@ -116,15 +125,6 @@
             btnObrisiStavkuPotvrde.Text = "Obriši stavku";
             btnObrisiStavkuPotvrde.UseVisualStyleBackColor = false;
             btnObrisiStavkuPotvrde.Click += btnObrisiStavkuPotvrde_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(22, 147);
-            label4.Name = "label4";
-            label4.Size = new Size(96, 20);
-            label4.TabIndex = 3;
-            label4.Text = "Iznos ukupno";
             // 
             // txtDatum
             // 
@@ -196,6 +196,7 @@
             btnPretraziPotvrdu.TabIndex = 27;
             btnPretraziPotvrdu.Text = "Pretraži potvrdu";
             btnPretraziPotvrdu.UseVisualStyleBackColor = false;
+            btnPretraziPotvrdu.Click += btnPretraziPotvrdu_Click;
             // 
             // comboBoxZaposleni
             // 
@@ -213,15 +214,16 @@
             comboBoxKupac.Size = new Size(151, 28);
             comboBoxKupac.TabIndex = 28;
             // 
-            // button1
+            // btnDodajStavkuPotvrde
             // 
-            button1.BackColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(821, 405);
-            button1.Name = "button1";
-            button1.Size = new Size(99, 48);
-            button1.TabIndex = 31;
-            button1.Text = "Dodaj stavku";
-            button1.UseVisualStyleBackColor = false;
+            btnDodajStavkuPotvrde.BackColor = SystemColors.ButtonHighlight;
+            btnDodajStavkuPotvrde.Location = new Point(821, 405);
+            btnDodajStavkuPotvrde.Name = "btnDodajStavkuPotvrde";
+            btnDodajStavkuPotvrde.Size = new Size(99, 48);
+            btnDodajStavkuPotvrde.TabIndex = 31;
+            btnDodajStavkuPotvrde.Text = "Dodaj stavku";
+            btnDodajStavkuPotvrde.UseVisualStyleBackColor = false;
+            btnDodajStavkuPotvrde.Click += btnDodajStavkuPotvrde_Click;
             // 
             // label11
             // 
@@ -237,7 +239,7 @@
             comboBoxDogadjaj.FormattingEnabled = true;
             comboBoxDogadjaj.Location = new Point(550, 439);
             comboBoxDogadjaj.Name = "comboBoxDogadjaj";
-            comboBoxDogadjaj.Size = new Size(151, 28);
+            comboBoxDogadjaj.Size = new Size(184, 28);
             comboBoxDogadjaj.TabIndex = 29;
             // 
             // label10
@@ -253,26 +255,27 @@
             // 
             txtKolicina.Location = new Point(547, 383);
             txtKolicina.Name = "txtKolicina";
-            txtKolicina.Size = new Size(151, 27);
+            txtKolicina.Size = new Size(187, 27);
             txtKolicina.TabIndex = 27;
             // 
-            // button2
+            // btnPotvrdiIzmenu
             // 
-            button2.BackColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(112, 417);
-            button2.Name = "button2";
-            button2.Size = new Size(213, 50);
-            button2.TabIndex = 32;
-            button2.Text = "Potvrdi izmene";
-            button2.UseVisualStyleBackColor = false;
+            btnPotvrdiIzmenu.BackColor = SystemColors.ButtonHighlight;
+            btnPotvrdiIzmenu.Location = new Point(112, 417);
+            btnPotvrdiIzmenu.Name = "btnPotvrdiIzmenu";
+            btnPotvrdiIzmenu.Size = new Size(213, 50);
+            btnPotvrdiIzmenu.TabIndex = 32;
+            btnPotvrdiIzmenu.Text = "Potvrdi izmene";
+            btnPotvrdiIzmenu.UseVisualStyleBackColor = false;
+            btnPotvrdiIzmenu.Click += btnPotvrdiIzmenu_Click;
             // 
             // UCIzmenaPotvrde
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnPotvrdiIzmenu);
+            Controls.Add(btnDodajStavkuPotvrde);
             Controls.Add(label9);
             Controls.Add(label11);
             Controls.Add(label5);
@@ -313,11 +316,11 @@
         private Button btnPretraziPotvrdu;
         private ComboBox comboBoxZaposleni;
         private ComboBox comboBoxKupac;
-        private Button button1;
+        private Button btnDodajStavkuPotvrde;
         private Label label11;
         private ComboBox comboBoxDogadjaj;
         private Label label10;
         private TextBox txtKolicina;
-        private Button button2;
+        private Button btnPotvrdiIzmenu;
     }
 }

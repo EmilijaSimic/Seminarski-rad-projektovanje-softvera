@@ -23,6 +23,7 @@ namespace Zajednicki.Komunikacija
         KREIRAJ_POTVRDU,
         PROMENI_POTVRDU,
         VRATI_LISTU_POTVRDA,
+        PRETRAZI_POTVRDU,
 
         PROMENI_POZICIJU,
         VRATI_LISTU_POZICIJA,
